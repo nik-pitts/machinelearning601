@@ -1,0 +1,11 @@
+title: "Your Blog Title"
+description: "A description of your blog"
+baseurl: ""
+url: "https://nik-pitts.github.io/machinelearning601"
+
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: riggraz/no-style-please
+
+# Other settings specific to the theme
