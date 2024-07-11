@@ -5,6 +5,8 @@ baseurl: ""
 url: "https://nik-pitts.github.io/machinelearning601"
 description: "Everday - 1 hour - ML - Studying - Pittsburgh"
 
+permalink: /:slug.html
+
 plugins:
   - jekyll-remote-theme
 
