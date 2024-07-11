@@ -1,7 +1,9 @@
-title: "Your Blog Title"
-description: "A description of your blog"
+title: "Machine Learning 601"
+author: Nik Kim
+email: knocknocknik@gmail.com
 baseurl: ""
 url: "https://nik-pitts.github.io/machinelearning601"
+description: "Everday - 1 hour - ML - Studying - Pittsburgh"
 
 plugins:
   - jekyll-remote-theme
@@ -9,3 +11,15 @@ plugins:
 remote_theme: riggraz/no-style-please
 
 # Other settings specific to the theme
+theme_config:
+  appearance: "auto" # can be "light", "dark" or "auto"
+  back_home_text: ".." # customize text for homepage link in post layout
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: false # show blog description in home page
+
+sass:
+  style: :compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
