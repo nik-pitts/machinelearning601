@@ -10,7 +10,7 @@ permalink: /:slug.html
 plugins:
   - jekyll-remote-theme
 
-remote_theme: nielsenramon/chalk
+remote_theme: riggraz/no-style-please
 
 # Other settings specific to the theme
 theme_config:
