@@ -48,7 +48,7 @@ LSTM uses two seperate paths to make predictions.
 
 #### Stage 1. (f_t)
 
-![Forget Gate](https://github.com/nik-pitts/machinelearning601/master/_images/2024-07-11_unit_stage_1.jpeg)
+![Forget Gate](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-11_unit_stage_1.jpeg)
 
 - The first stage in a LSTM unit determines what percentage of the Long Term Memory is remembered.
 - Any miscellaneous weights (smaller than 0) will turn into numbers close to 0 (because of sigmoid activation fuction) and the total multiplication result among weights will output 0.
@@ -57,7 +57,7 @@ LSTM uses two seperate paths to make predictions.
 
 #### Stage 2. (i_t)
 
-![Input Gate](https://github.com/nik-pitts/machinelearning601/master/_images/2024-07-11_unit_stage_2.jpeg)
+![Input Gate](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-11_unit_stage_2.jpeg)
 
 - This stage determines how we should update the Long Term Memory.
 - Consisted of two activation functions: sigmoid and tanh function.
@@ -68,7 +68,7 @@ LSTM uses two seperate paths to make predictions.
 
 #### Stage 3. (o_t)
 
-![Output Gate](https://github.com/nik-pitts/machinelearning601/master/_images/2024-07-11_unit_stage_3.jpeg)
+![Output Gate](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-11_unit_stage_3.jpeg)
 
 - The final stage calculates output from entire LSTM unit. Decides what next hidden state should be.
 - Plug previous hidden state to sigmoid function that decides **percentage(%) of potential memory to be remembered**.
