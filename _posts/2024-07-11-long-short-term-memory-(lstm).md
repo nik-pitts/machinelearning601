@@ -47,12 +47,18 @@ LSTM uses two seperate paths to make predictions.
 ### Stages of a unit
 
 #### Stage 1. (f_t)
+
+![Forget Gate](https://github.com/nik-pitts/machinelearning601/_images/2024-07-11_unit_stage_1.jpeg)
+
 - The first stage in a LSTM unit determines what percentage of the Long Term Memory is remembered.
 - Any miscellaneous weights (smaller than 0) will turn into numbers close to 0 (because of sigmoid activation fuction) and the total multiplication result among weights will output 0.
 - Weights closer to 0 means *to forget* and closer to 1 means *to keep*.
 - That's why this stage is also called as "Forget Gate". It produces **forget vector**.
 
 #### Stage 2. (i_t)
+
+![Input Gate](https://github.com/nik-pitts/machinelearning601/_images/2024-07-11_unit_stage_2.jpeg)
+
 - This stage determines how we should update the Long Term Memory.
 - Consisted of two activation functions: sigmoid and tanh function.
   - Sigmoid f: Transform values between 0 and 1. **Percentage(%) of potential memory to be remembered**.
@@ -61,11 +67,14 @@ LSTM uses two seperate paths to make predictions.
 - This stage provides new input weights that produces new cell state. That's why it is also called as "Input Gate".
 
 #### Stage 3. (o_t)
+
+![Output Gate](https://github.com/nik-pitts/machinelearning601/_images/2024-07-11_unit_stage_3.jpeg)
+
 - The final stage calculates output from entire LSTM unit. Decides what next hidden state should be.
 - Plug previous hidden state to sigmoid function that decides **percentage(%) of potential memory to be remembered**.
 - Plug new cell state to tanh function that decides **potential short term memory**.
 - Multiply sigmoid(hidden state) with tanh(new cell state) and produce **new short term memory**.
-- This is the output of an entire LSTM unit. That's why the stage is also called as "Output Gate"
+- This is the output of an entire LSTM unit. That's why the stage is also called as "Output Gate".
 
 ## [Code Example](#exmaple)
 
