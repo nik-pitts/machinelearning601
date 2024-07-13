@@ -17,16 +17,19 @@ entries:
       show_more_url: archive.html
 
   - title: posts by category
-    post_list:
-      category: RNN
-      show_more: true
-      show_more_text: See more posts...
-      #show_more_url: example2-archive.html
-    post_list:
-      category: NLP
-      show_more: true
-      show_more_text: See more posts...
-      #show_more_url: example2-archive.html
+    entries:
+      - title: RNN
+        post_list:
+          category: RNN
+          show_more: true
+          show_more_text: See more posts...
+          #show_more_url: example2-archive.html
+      - title: NLP
+        post_list:
+          category: NLP
+          show_more: true
+          show_more_text: See more posts...
+          #show_more_url: example2-archive.html
   
   - title: About Me
     url: about
