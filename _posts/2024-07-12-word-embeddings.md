@@ -70,7 +70,9 @@ This is possible because of the ***Parallelogram Relationship*** between two vec
 ## Converting one-hot vector to feature vector
 
 Completing embedding matrix is done by like any other neural network - initializing weights, feed forward and back progagation. Well trained model will output corresponding weight values for each cell in the embedding table.
+
 The number of rows in the table represents the dimension(# of feature) of word embedding vector, for example, 300. Likewise, the number of columns represents the total number of words that are in our represented dictionary, lets say, 10k.
+
 Learning means that each cell is filled with right weight values. Therefore, after the learning process is completed, there will be a corresponding 300 * 10k values in this matrix. Then how can we extract word embedding vector of specific one-hot vector?
 
 The answer is simple **dot product(·)** of **E(embedding table)** with **O_w(corresponding one-hot vector)**.
@@ -89,9 +91,18 @@ Below is an intuitive figure explaining conversion from one-hot vector to word e
 
 Although the basis of word embedding is same, there might be slight differences in details of architecture among word embedding models. In this post we'll cover **word2vec** approach, especially **CBOW** and **SkipGram** architecture.
 
-### CBOW
+![CBOW and SkipGrame Diagram](https://miro.medium.com/v2/resize:fit:1400/1*cuOmGT7NevP9oJFJfVpRKA.png)
+*CBOW and SkipGrame method diagrams[^5]*
 
-### Skip Gram
+### CBOW(Continuous Bags of Words)
+
+In CBOW method, neural network is trained such that the model predicts *'blank'* word in a given context. 
+For example, the model is objected to predict the word that should enter in the blank. → I ______ my dog.
+
+### SkipGram
+
+In contrast, SkipGram method trains neural network to be trained such that the model predicts *'context words'* when a word is given.
+Therefore, the model should produce multiple words as output. For example, when a word 'dog' is given, the model should statistically predict the context that goes along with this word.
 
 ---
 {: data-content="footnotes"}
@@ -100,3 +111,4 @@ Although the basis of word embedding is same, there might be slight differences 
 [^2]: Figure source *[from here](https://miro.medium.com/v2/resize:fit:1358/0*hcWVsMExgGQJWpt1)*
 [^3]: Figure source *[from here](https://assets.zilliz.com/Similarity_Metrics_for_Vector_Search_Zilliz_43396d4adb.png)*
 [^4]: Figure source *[from here](https://medium.com/@dhartidhami/learning-word-embeddings-9f15533645b3)*
+[^5]: Figrue source *[from here](https://towardsdatascience.com/nlp-101-word2vec-skip-gram-and-cbow-93512ee24314)*
