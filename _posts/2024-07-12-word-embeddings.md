@@ -76,6 +76,7 @@ Learning means that each cell is filled with right weight values. Therefore, aft
 The answer is simple **dot product(·)** of **E(embedding table)** with **O_w(corresponding one-hot vector)**.
 
 > E·O_w = e_w (E: embedding table, O_w: one-hot vector, e_w: word embedding vector)
+
 *Note that E is size of 300 * 10k and O_w is size of 10k * 1, resulting e_w which is size of 300 * 1.*
 *Note that how 10k dimension vector is shrinked to 300!*
 
