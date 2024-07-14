@@ -27,6 +27,7 @@ This is the basic outline of how model is trained to embed words.
   - We need one-hot encoded vectors to represent all words for input and output of neural network.
 
 4. Build neural network
+
   ```
   from tensorflow.keras.models import Sequential
   from tensorflow.keras.layers import Dense, Input
@@ -48,6 +49,7 @@ This is the basic outline of how model is trained to embed words.
   - For the output layer, we use Softmax activation function.
 
 5. Throw data into the NN
+
   ```
   X = []
   Y = []
