@@ -28,13 +28,11 @@ This is the basic outline of how model is trained to embed words.
   - We need one-hot encoded vectors to represent all words for input and output of neural network.
 
 4. Build neural network
-
   - Usually, word embedding is not a super complex deep neural network.
   - It is consisted of three layers - an input, one hidden, and an output layer.
   - For the output layer, we use Softmax activation function.
 
 5. Throw data into the NN
-   
   - X and Y are onehot representation of bigram word set resprectively.
 
   ```
@@ -87,7 +85,7 @@ In word embedding models, the number of output nodes are same as the number of i
 
 ## [Training Result](##tr)
 
-![training-result](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-14_word-embedding-result.png)
+![training-result](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-14-word-embedding-result.png)
 
 ```
 weights = model.get_weights()[0]
