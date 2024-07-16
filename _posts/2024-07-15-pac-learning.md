@@ -139,6 +139,8 @@ $$
 To solve PAC learning,
 
 $$
+\documentclass{article}
+\usepackage{amsmath}
 \begin{document}
 \begin{aligned}
 & 4\left( 1-\varepsilon /4\right) ^{m} <\delta \quad \text{\hfill[Hypothesis PAC]} \\
