@@ -9,8 +9,8 @@ LSTM and GRU algorithms are used in stated of the art in deep learning applicati
 - [Purpose](#purpose)
 - [Idea](#idea)
 - [Activation Functions](#activation-functions)
-- [Architecture](#architecture)
-- [Example](#example)
+- [Cell Architecture](#architecture)
+- [Code Example](#example)
 
 ## [Purpose](#purpose)
 
@@ -76,7 +76,7 @@ LSTM uses two seperate paths to make predictions.
 - Multiply sigmoid(hidden state) with tanh(new cell state) and produce **new short term memory**.
 - This is the output of an entire LSTM unit. That's why the stage is also called as "Output Gate".
 
-## [Code Example](#exmaple)
+## [Code Example](#example)
 
 Python seudo code examlpe of a LSTM cell[^3]:
 
