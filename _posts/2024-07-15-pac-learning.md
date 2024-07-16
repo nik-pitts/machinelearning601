@@ -64,7 +64,7 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
   $$
   - Sampling over **training dataset D**.
  
-Note that \\(mathcal{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
+Note that \\{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
 
 ## [Our Interest](##interest)
 
