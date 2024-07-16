@@ -18,7 +18,7 @@ The content was written in reference to course content from *Henry Chai(CMU 10-4
 Statistically, we can precisely define our model as below:
 
 1. Data points are generated from some *unknown* **distribution**.
-   $$ x^{(n)} ~ p*(x) $$
+   $$ x^{(n)} \sim p*(x) $$
 2. Labels are generated from some *unknown* function.
    $$ y^{(n)} = c*(x^{(n)}) $$
    - c*: target generating function
@@ -52,7 +52,7 @@ Let's review types of error we have been through.
 Terminology alert! Although conceptuall we're using same notion of true error rate and training error rate, we are going to use term *expected risk* and *empirical risk* in this section. Let's think error rate as **risk** that your model makes mistakes.
 
 - Expected risk of hypothesis \\(h\\) (true error)
-  $$R(h) = P_x~p*(c*(x) \ne h(x))$$
+  $$R(h) = P_x \sim p*(c*(x) \ne h(x))$$
   - Sampling over **all possible** data points under the distribution $p*$.
 
 - Empirical risk of hypothesis $h$ (training error)
@@ -64,7 +64,7 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
   $$
   - Sampling over **training dataset D**.
  
-Note that \\(\mathcal{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and $x ~ D$ denotes a point sampled uniformly at random from \\(D\\).
+Note that \\(mathcal{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
 
 ## [Our Interest](##interest)
 
