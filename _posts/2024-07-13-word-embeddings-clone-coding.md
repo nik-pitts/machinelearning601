@@ -8,9 +8,9 @@ Original content can be found [this](https://github.com/Coding-Lane/Training-Wor
 
 ## Table of contents
 - [Code Flow](#code-flow)
-- [Why Biagrams?](#biagram)
-- [NN Architecture](#nn)
-- [Training Result](##tr)
+- [Why Biagrams?](#why-biagrams?)
+- [NN Architecture](#nn-architecture)
+- [Training Result](##training-result)
 
 ## [Code Flow](#code-flow)
 
@@ -62,11 +62,11 @@ This is the basic outline of how model is trained to embed words.
   model.fit(X, Y, epochs = 1000)
   ```
 
-## [Why Biagrams?](#biagram)
+## [Why Biagrams?](#why-biagrams?)
 
 Here, we use biagrams to learn the relationships between pairs of words (bigrams) based on the provided data. The provided data 𝑋 and 𝑌 work as usual input and output of supervised learning, where 𝑋 represents input and 𝑌 represents label, the ground truth. Based on this information, the model will predict the value, then compare the prediction with label, finally tries to minimize the error.
 
-## [NN Architecture](#nn)
+## [NN Architecture](#nn-architecture)
 
 ![nn-architecture](https://github.com/Coding-Lane/Training-Word-Embeddings---Scratch/blob/main/nn-2.png?raw=true)
 *Neural network acthiecture diagram[^1]*
@@ -83,7 +83,7 @@ This neural network is a fully connected model. Every 12 nodes are connected to 
 
 In word embedding models, the number of output nodes are same as the number of input nodes. This is because the output should be a word in an one-hot vector format. Through numerous iteration, the neural network will adjust weights from hidden layer to output layer and use these weights to produce predicted value. Since word embedding is multiple classification problem, **Softmax** activation function is used.
 
-## [Training Result](##tr)
+## [Training Result](##training-result)
 
 ![training-result](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-14-word-embedding-result.png)
 
