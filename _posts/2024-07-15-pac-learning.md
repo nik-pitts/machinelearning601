@@ -64,7 +64,7 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
   $$
   - Sampling over **training dataset D**.
  
-Note that \\{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
+Note that \\({D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
 
 ## [Our Interest](##interest)
 
@@ -80,10 +80,85 @@ To sum up, let's recall what our interests are when we are building a learning m
  
 This observation concludes into one question: **Given a hypothesis with zero/low *"training error"*, what can we say about its true error?** Can training error give some insight about true error and true performance of our model?
 
-## [Rectangle PAC](##rec-pac)
+## [Rectangle PAC](##rec-pac)[^1]
 
+### 1. PAC Criterion
+
+$$
+\begin{aligned}
+& P(|R(h)-\hat{R}(h)| \leq \varepsilon) \\
+& \quad \geq 1-\delta \quad \forall \quad h \in \mathcal{H}
+\end{aligned}
+$$
+
+> \\(R(h)\\): Empirical risk
+> \\(\hat{R}(h)\\): Expected risk
+> \\(\varepsilon\\): Difference between expected and empirical risk, **upper bound error**.
+> \\(\delta\\): Probability of failure.
+> \\(1-\delta\\): Confidency
+> \\(P(|R(h)-\hat{R}(h)| \leq \varepsilon)\\): Desirable property of a model
+
+#### \\(\varepsilon\\)
+
+Since for any set of training examples \\(T \subset X\\) there may be multiple hypothesis consistent with \\(T\\). However, the learner cannot be guaranteed to choose the one corresponding to the target concept, unless it is trained on every instance \\(X\\), which is unrealistic. **Therefore, we don't require L to output a zero error hypothesis - only require that error be bounded by a constant \\(\varepsilon\\) that can be made arbitrarily small**.
+
+#### \\(\delta\\)
+
+Since training examples drawn at random, there must be a non-zero probability that they'll be misleading. **Therefore, we don't want L to succeed for every randomly drawn sequence of training examples - only require that it's probability of failure be bounded by a constant \\(\delta\\) that can also be made arbitrarily small**.
+
+### 2. PAC Learning Model: General Setting
+
+- \\(x\\): Set of all possible instances over which target functions are to be defined.
+- \\(C\\): Set of target concepts the learner may be asked to learn. Where each \\(c \in C\\), \\(C\\) may be viewed as a boolean-valued function \\(c:x \rightarrow \{0, 1\}\\). If \\(x\\) is a positive example \\(C(x)=1\\); If \\(x\\) is a negative example \\(C(x)=0\\).
+- \\(D\\): Examples are drawn at random from \\(x\\) according to a probability distribution \\(D\\).
+- \\(H\\): A learner \\(L\\) considers a set of hypothesis \\(H\\) and after observing some sequence of training examples, outputs a hypothesis \\(h \in H\\) which is its estimate of \\(C\\).
+- The true error of hypothesis \\(h\\) (denoted \\(\operatorname{error}_D(h)\\)) w.r.t. target concept \\(c\\) and distribution \\(D\\) is the probability that \\(h\\) will misclassify an instance drawn at random according to \\(D\\).
+
+$$ 
+\operatorname{error}_D(h)=\operatorname{Pr}_{x \in D}[c(x) \neq h(a)] 
+$$
+  
+### 3. Rectangle PAC Learning
+
+![error-region](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-15-error-region.jpg)
+
+- Our goal is to find the best \\(h\\), that approximate target function \\(c\\).
+- \\(c\\): Real target function
+- \\(h_s\\): The tightest possible rectangle around a set of positive training example.
+- Since \\(h_s \subset c\\), error region = \\(c-h\\).
+- ** To be approximately correct, the area of error region should be bounded by \\(\varepsilon\\).
+
+> Idea: If at least **one** of the side was misclassified, all the samples of training set, we'll gwt bad hypothesis.
+
+![strips](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-15-strips.jpg)
+
+- Error region = Sum of four rectangular strips < \\(\varepsilon\\).
+- Each strip is at most \\(\varepsilon / 4\\)
+- Probability of a positive example falling in any of the strip(error region) = \\(\varepsilon / 4\\)
+- Probability that a radomly drawn positive example misses a strip = \\(1-\varepsilon / 4\\)
+- Probability of \\(m\\) examples miss a strip = \\((1-\varepsilon / 4)^m\\)
+- Probability of \\(m\\) examples miss *any one of* strip \\(<4(1-\varepsilon / 4)^m\\)
+
+To solve PAC learning,\
+
+$$
+\begin{aligned}
+& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \rightline{\[Hypothesis PAC\]} \\
+& Using inequality, 1-x\leqq e^{-x} \rightline{\[x=\varepsilon /4\]} \\
+& 4\left( -\varepsilon /4\right) ^{m}\leq 4e^{-m\varepsilon /4} <\delta \\
+& m >\dfrac{4}{\varepsilon }\ln \dfrac{4}{\delta }
+\end{aligned}
+$$
+
+### 4. Conclusion
+
+If we ant to have an accuract of \\(\varepsilon\\) and confidence of at least \\(1-\delta\\), we have to choose a sample size \\(m\\) s.t
+
+$$
+m >\dfrac{4}{\varepsilon }\ln \dfrac{4}{\delta }
+$$
 
 ---
 {: data-content="footnotes"}
 
-[^1]: Figure source *[from here](https://github.com/Coding-Lane/Training-Word-Embeddings---Scratch), Coding Lane*
+[^1]: Content and explanation originally *[from this video](https://youtu.be/fTWm2S5tFCo?si=wL9cLp_45FGRwic6), SanITtips*
