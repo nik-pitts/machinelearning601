@@ -7,11 +7,11 @@ This post covers **Probably Approbimately Correct** learning theory.
 The content was written in reference to course content from *Henry Chai(CMU 10-401/601)* and [this video](https://youtu.be/fTWm2S5tFCo?si=wL9cLp_45FGRwic6), *Probably Approximately Correct(PAC) Learning (KTU CS467 Machine Learning Module 2)*.
 
 ## Table of contents
-- [Statistical Learning Theory Model](#stat-ltm)
-- [Types of Error](#error)
-- [Types of Risk](#risk)
-- [Our interest](#interest)
-- [Rectangle PAC](##rec-pac)
+- [Statistical Learning Theory Model](#statistical-learning-theory-model)
+- [Types of Error](#types-of-error)
+- [Types of Risk](#types-of-risk)
+- [Our interest](#our-interest)
+- [Rectangle PAC](#rectangle-pac)
 
 ## [Statistical Learning Theory Model](#stat-ltm)
 
