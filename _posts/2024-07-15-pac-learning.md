@@ -64,7 +64,7 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
   $$
   - Sampling over **training dataset D**.
  
-Note that \\({D}=\left\lbrace\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
+Note that \\({D}=\left\lbrace\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\rbrace_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
 
 ## [Our Interest](##interest)
 
@@ -85,7 +85,7 @@ This observation concludes into one question: **Given a hypothesis with zero/low
 ### 1. PAC Criterion
 
 $$
-P(|R(h)-\hat{R}(h)| \leq \varepsilon) \quad \geq 1-\delta \quad \forall \quad h \in \mathcal{H}
+P(|R(h)-\hat{R}(h)| \leq \varepsilon) \quad \geq \quad 1-\delta \quad \forall \quad h \in \mathcal{H}
 $$
 
 > \\(R(h)\\): Empirical risk \
@@ -125,7 +125,7 @@ $$
 - Since \\(h_s \subset c\\), error region = \\(c-h\\).
 - **To be approximately correct, the area of error region should be bounded by \\(\varepsilon\\).**
 
-> Idea: If at least **one** of the side was misclassified, all the samples of training set, we'll gwt bad hypothesis.
+> Idea: If at least **one** of the side was misclassified, all the samples of training set, we'll get bad hypothesis.
 
 ![strips](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-15-strips.jpg)
 
@@ -140,9 +140,9 @@ To solve PAC learning,
 
 $$
 \begin{aligned}
-& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \quad \[\text{Hypothesis PAC}\] \\
-& \text{Using inequality,} 1-x\leqq e^{-x} \quad \[x=\varepsilon /4\] \\
-& 4\left( -\varepsilon /4\right) ^{m}\leq 4e^{-m\varepsilon /4} <\delta \\
+& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \quad \text{[Hypothesis PAC]} \\
+& \text{Using inequality,} \; 1-x \leq e^{-x} \quad \text{[x = $\varepsilon$ / 4]} \\
+& 4\left( 1-\varepsilon /4\right) ^{m}\leq 4e^{-m\varepsilon /4} <\delta \\
 & m >\dfrac{4}{\varepsilon }\ln \dfrac{4}{\delta }
 \end{aligned}
 $$
