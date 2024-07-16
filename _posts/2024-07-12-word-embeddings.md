@@ -9,8 +9,8 @@ Word embeddings is to learn a **vector representation** of a word.
 - [Necessity](#necessity)
 - [Idea](#idea)
 - [Embedding Matrix](#embedding-matrix)
+- [Converting one-hot vector to feature vector](#converting-one-hot-vector-to-feature-vector)
 - [Architecture](#architecture)
-- [Example](#example)
 
 ## [Necessity](#necessity)
 
@@ -67,7 +67,7 @@ This is possible because of the ***Parallelogram Relationship*** between two vec
 ![Vector similarity](https://assets.zilliz.com/Similarity_Metrics_for_Vector_Search_Zilliz_43396d4adb.png)
 *Vector similariry figures[^3]*
 
-## Converting one-hot vector to feature vector
+## [Converting one-hot vector to feature vector](#converting-one-hot-vector-to-feature-vector)
 
 Completing embedding matrix is done by like any other neural network - initializing weights, feed forward and back progagation. Well trained model will output corresponding weight values for each cell in the embedding table.
 
