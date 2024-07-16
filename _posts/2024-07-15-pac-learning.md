@@ -18,11 +18,11 @@ The content was written in reference to course content from *Henry Chai(CMU 10-4
 Statistically, we can precisely define our model as below:
 
 1. Data points are generated from some *unknown* **distribution**.
-   $$ x^(n) ~ p*(x) $$
+   $$ x^{(n)} ~ p*(x) $$
 2. Labels are generated from some *unknown* function.
-   $$ y^(n) = c*(x^(n)) $$
+   $$ y^{(n)} = c*(x^{(n)}) $$
    - c*: target generating function
-3. Learning algorithm chooses the hypothsis(or classifier) with **lowest tarining error rate** from a specified *hypotheisis(classifier)* set, \$H\$.
+3. Learning algorithm chooses the hypothsis(or classifier) with **lowest tarining error rate** from a specified *hypotheisis(classifier)* set, \\(H\\).
 4. But! Our goal is to return a hypothesis(or classifier) with **low true error rate**. This means we expect good generalisation.
 
 ## [Types of Error](#error)
@@ -51,7 +51,7 @@ Let's review types of error we have been through.
 
 Terminology alert! Although conceptuall we're using same notion of true error rate and training error rate, we are going to use term *expected risk* and *empirical risk* in this section. Let's think error rate as **risk** that your model makes mistakes.
 
-- Expected risk of hypothesis $h$ (true error)
+- Expected risk of hypothesis \\(h\\) (true error)
   $$R(h) = P_x~p*(c*(x) \ne h(x))$$
   - Sampling over **all possible** data points under the distribution $p*$.
 
@@ -64,11 +64,11 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
   $$
   - Sampling over **training dataset D**.
  
-Note that \$\mathcal{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\$ is the training data set and $x ~ D$ denotes a point sampled uniformly at random from \$D\$.
+Note that \\(\mathcal{D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and $x ~ D$ denotes a point sampled uniformly at random from \\(D\\).
 
 ## [Our Interest](##interest)
 
-To sum up, let's recall what our interests are when we are building a learning model. Withour a doubt, we are interested in the **true function**, \$c*\$. However, we have no idea what it is, so we try to approximate it. And this goal can be rewritten in format such that:
+To sum up, let's recall what our interests are when we are building a learning model. Withour a doubt, we are interested in the **true function**, \\(c*H\\). However, we have no idea what it is, so we try to approximate it. And this goal can be rewritten in format such that:
 
 - Expected risk minimizer
   $$h^*=\underset{h \in \mathcal{H}}{\operatorname{argmin}} R(h)$$
