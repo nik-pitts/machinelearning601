@@ -53,7 +53,7 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
 
 - Expected risk of hypothesis \\(h\\) (true error)
   $$R(h) = P_x \sim p*(c*(x) \ne h(x))$$
-  - Sampling over **all possible** data points under the distribution $p*$.
+  - Sampling over **all possible** data points under the distribution \\(p*\\).
 
 - Empirical risk of hypothesis $h$ (training error)
   $$\begin{aligned}
@@ -64,7 +64,7 @@ Terminology alert! Although conceptuall we're using same notion of true error ra
   $$
   - Sampling over **training dataset D**.
  
-Note that \\({D}=\left\{\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
+Note that \\({D}=\left\lbrace\left(\boldsymbol{x}^{(n)}, y^{(n)}\right)\right\}_{n=1}^N\\) is the training data set and \\(x \sim D\\) denotes a point sampled uniformly at random from \\(D\\).
 
 ## [Our Interest](##interest)
 
@@ -91,11 +91,11 @@ $$
 \end{aligned}
 $$
 
-> \\(R(h)\\): Empirical risk
-> \\(\hat{R}(h)\\): Expected risk
-> \\(\varepsilon\\): Difference between expected and empirical risk, **upper bound error**.
-> \\(\delta\\): Probability of failure.
-> \\(1-\delta\\): Confidency
+> \\(R(h)\\): Empirical risk \
+> \\(\hat{R}(h)\\): Expected risk \
+> \\(\varepsilon\\): Difference between expected and empirical risk, **upper bound error**. \
+> \\(\delta\\): Probability of failure. \
+> \\(1-\delta\\): Confidency \
 > \\(P(|R(h)-\hat{R}(h)| \leq \varepsilon)\\): Desirable property of a model
 
 #### \\(\varepsilon\\)
@@ -126,7 +126,7 @@ $$
 - \\(c\\): Real target function
 - \\(h_s\\): The tightest possible rectangle around a set of positive training example.
 - Since \\(h_s \subset c\\), error region = \\(c-h\\).
-- ** To be approximately correct, the area of error region should be bounded by \\(\varepsilon\\).
+- **To be approximately correct, the area of error region should be bounded by \\(\varepsilon\\).**
 
 > Idea: If at least **one** of the side was misclassified, all the samples of training set, we'll gwt bad hypothesis.
 
@@ -139,12 +139,12 @@ $$
 - Probability of \\(m\\) examples miss a strip = \\((1-\varepsilon / 4)^m\\)
 - Probability of \\(m\\) examples miss *any one of* strip \\(<4(1-\varepsilon / 4)^m\\)
 
-To solve PAC learning,\
+To solve PAC learning,
 
 $$
 \begin{aligned}
-& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \rightline{\[Hypothesis PAC\]} \\
-& Using inequality, 1-x\leqq e^{-x} \rightline{\[x=\varepsilon /4\]} \\
+& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \quad \[\text{Hypothesis PAC}\] \\
+& \text{Using inequality,} 1-x\leqq e^{-x} \quad \[x=\varepsilon /4\] \\
 & 4\left( -\varepsilon /4\right) ^{m}\leq 4e^{-m\varepsilon /4} <\delta \\
 & m >\dfrac{4}{\varepsilon }\ln \dfrac{4}{\delta }
 \end{aligned}
