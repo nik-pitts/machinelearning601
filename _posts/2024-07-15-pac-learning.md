@@ -85,10 +85,7 @@ This observation concludes into one question: **Given a hypothesis with zero/low
 ### 1. PAC Criterion
 
 $$
-\begin{aligned}
-& P(|R(h)-\hat{R}(h)| \leq \varepsilon) \\
-& \quad \geq 1-\delta \quad \forall \quad h \in \mathcal{H}
-\end{aligned}
+P(|R(h)-\hat{R}(h)| \leq \varepsilon) \quad \geq 1-\delta \quad \forall \quad h \in \mathcal{H}
 $$
 
 > \\(R(h)\\): Empirical risk \
