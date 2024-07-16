@@ -139,16 +139,12 @@ $$
 To solve PAC learning,
 
 $$
-\documentclass{article}
-\usepackage{amsmath}
-\begin{document}
 \begin{aligned}
-& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \quad \text{\hfill[Hypothesis PAC]} \\
-& \text{Using inequality,} \; 1-x \leq e^{-x} \quad \text{\hfill[x = $\varepsilon$ / 4]} \\
+& 4\left( 1-\varepsilon /4\right) ^{m} <\delta \quad \text{[Hypothesis PAC]} \\
+& \text{Using inequality,} \; 1-x \leq e^{-x} \quad \text{[x = $\varepsilon$ / 4]} \\
 & 4\left( 1-\varepsilon /4\right) ^{m}\leq 4e^{-m\varepsilon /4} <\delta \\
 & m >\dfrac{4}{\varepsilon }\ln \dfrac{4}{\delta }
 \end{aligned}
-\end{document}
 $$
 
 ### 4. Conclusion
