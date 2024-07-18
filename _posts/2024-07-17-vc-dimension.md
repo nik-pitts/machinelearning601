@@ -79,14 +79,14 @@ $$
 - In binary classification task, \\(g_{\mathcal{H}}(M)\\) is always bounded to \\(2^M\\):
 
   $$
-  g_{\mathcal{H}}(M) \leq 2^M \forall \mathcal{H} \text { and } M
+  g_{\mathcal{H}}(M) \leq 2^M \ \forall \ \mathcal{H} \ \text { and } \ M
   $$
 
 - This has its own term, which is a **shatter**.
-  - \\(H\\) *shatters* \\(S\\) if \\(|\mathcal{H}(s)| = 2^{M}\\)
+  - \\(H\\) *shatters* \\(S\\) if \\(\|\mathcal{H}(s)\| = 2^{M}\\)
 
   $$
-  \text { If } \exists S \text { s.t. } \|S\| I=M \text { and } \mathcal{H} \text { shatters } S \text {, then } g_{\mathcal{H}}(M)=2^M
+  \text { If } \ \exists S \ \text { s.t. } \|S\|=M \text { and } \mathcal{H} \text { shatters } S \text {, then } g_{\mathcal{H}}(M)=2^M
   $$
 
 ### Exercise
@@ -96,7 +96,7 @@ $$
   - This means this 2-dimensional linear separator \\(H\\) shatters \\(S\\).
     
 2. \\(x^{(m)} \in \mathbb{R}^2\\) and \\(H =\\) all 2-dimensional linear separators, what is \\(g_{\mathcal{H}}(4)\\)?
-  - \\(g_{H}\(4\) = 8 \leqslant 2^4\\).
+  - \\(g_{H}\(4\) = 8 \leq 2^4\\).
   - This means no set of 4 points in linear decision boundaries in 2-dimensional can shatter.
 
 ## [VC Bound](#vc-bound)
@@ -107,7 +107,7 @@ $$
 M \geq \frac{2}{\varepsilon}\left(\log _2\left(2 g_{M}(2 M)\right)+\log _2\left(\frac{1}{\delta}\right)\right)
 $$
 
-then with probability at least \\(1-\delta\\), all \\(h \in H) with \\(R(h) \geq \varepsilon\\) have \\(\hat{R}(h) > 0\\).
+then with probability at least \\(1-\delta\\), all \\(h \in H) with \\(R{(h)} \geq \varepsilon\\) have \\(\hat{R}(h) > 0\\).
 
 - This Vapnik-Chervonenkis(VC)-Bound theorem works for where our hypothesis set is infinite in size but we know that \\(c*\\) lives within that inifinite size hypothesis \\(H\\).
 - However, there's diffult-to-solve problem here: the term \\(M\\) appears both sides of enequality equation.
