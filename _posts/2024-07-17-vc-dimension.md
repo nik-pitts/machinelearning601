@@ -86,7 +86,7 @@ $$
   - \\(H\\) *shatters* \\(S\\) if \\(\|\mathcal{H}(s)\| = 2^{M}\\)
 
   $$
-  \text { If } \ \exists S \ \text { s.t. } \|S\|=M \text { and } \mathcal{H} \text { shatters } S \text {, then } g_{\mathcal{H}}(M)=2^M
+  \text { If } \ \exists \ S \ \text { s.t. } \|S\|=M \text { and } \mathcal{H} \text { shatters } S \text {, then } g_{\mathcal{H}}(M)=2^M
   $$
 
 ### Exercise
@@ -107,7 +107,7 @@ $$
 M \geq \frac{2}{\varepsilon}\left(\log _2\left(2 g_{M}(2 M)\right)+\log _2\left(\frac{1}{\delta}\right)\right)
 $$
 
-then with probability at least \\(1-\delta\\), all \\(h \in H) with \\(R{(h)} \geq \varepsilon\\) have \\(\hat{R}(h) > 0\\).
+then with probability at least \\(1-\delta\\), all \\(h \in H\\) with \\(R(h) \geq \varepsilon\\) have \\(\hat{R}(h) > 0\\).
 
 - This Vapnik-Chervonenkis(VC)-Bound theorem works for where our hypothesis set is infinite in size but we know that \\(c*\\) lives within that inifinite size hypothesis \\(H\\).
 - However, there's diffult-to-solve problem here: the term \\(M\\) appears both sides of enequality equation.
