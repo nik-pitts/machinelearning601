@@ -23,7 +23,7 @@ $$
 m >\dfrac{4}{\varepsilon }\ln \dfrac{4}{\delta }
 $$
 
-To restate, for a finite hypothesis set \\(H\\) and arbitrary distribution \\(p*\\), given a training data set \\(S\\) s.t. \\(|S| = M \\), all \\(h \in H\\) have:
+To restate, for a finite hypothesis set \\(H\\) and arbitrary distribution \\(p*\\), given a training data set \\(S\\) s.t. \\(\|S\| = M \\), all \\(h \in H\\) have:
 
 $$
 R\left( h\right) \leq \widehat{R}\left( h\right) +\sqrt{\dfrac{1}{2M}\left( \ln \left( |H|\right) +\ln \left( \dfrac{2}{\delta }\right) \right) }
@@ -37,10 +37,10 @@ However, there was an assumption we made to derive this. That is, we convenientl
 
 The intuition behind VC bounds is this question:
 
-If two hypothesis (\\h_1, h_2 \in H\\) are very **similar**, then the events
+If two hypothesis \\(h_1, h_2 \in H\\) are very **similar**, then the events
 
-- (\\h1\\) is consistent with the first \\(m\\) training points.
-- Like wise, (\\h2\\) is consistent with the first \\(m\\) training points.
+- \\(h1\\) is consistent with the first \\(m\\) training points.
+- Like wise, \\(h2\\) is consistent with the first \\(m\\) training points.
 
 In other words, labelling result among hypothesis will **overlap** a lot!
 
