@@ -36,6 +36,12 @@ entries:
           show_more: true
           show_more_text: See more posts...
           #show_more_url: example2-archive.html
+      - title: Mathematics
+        post_list:
+          category: Mathematics
+          show_more: true
+          show_more_text: See more posts...
+          #show_more_url: example2-archive.html
   
   - title: About Me
     url: about
