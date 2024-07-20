@@ -7,15 +7,15 @@ This post covers **VC Dimension** learning theory.
 The content was written in reference to course content from *Henry Chai(CMU 10-401/601)*.
 
 ## Table of contents
-- [Recall PAC Learning](#recall)
+- [Recall PAC Learning](#recall-pac-learning)
 - [Intuition](#intuition)
 - [Growth Function](#growth-function)
 - [VC Bound](#vc-bound)
-- [VC Dimension](#vc-dim)
-- [Revisit VC Bound](#revisit)
-- [Trade Off in ML](#tradeoff)
+- [VC Dimension](#vc-dimension)
+- [Revisit VC Bound](#revisit-vc-bound)
+- [Trade Off in ML](#trade-off-in-ml)
 
-## [Recall PAC Learning](#recall)
+## [Recall PAC Learning](#recall-pac-learning)
 
 In PAC learning, we mathematically verified how many sample size of \\(m\\) we need to ensure our hypothesis \\(h\\) of at least \\(1-\delta\\) confidency and to have an accuracy of \\(\varepsilon\\).
 
@@ -113,7 +113,7 @@ then with probability at least \\(1-\delta\\), all \\(h \in H\\) with \\(R(h) \g
 - However, there's diffult-to-solve problem here: the term \\(M\\) appears both sides of enequality equation.
 - To walk around this issue, we introduce the concept of VC-Dimension.
 
-## [VC Dimension](#vc-dim)
+## [VC Dimension](#vc-dimension)
 
 VC-Dimension is the greatest number of data points that \\(H\\) can shatter. More formally, \\(d_{vc}(\mathcal{H})\\) = the **largest** value of \\(M\\) s.t. \\{g_{\mathcal{H}}(M) = 2^{M}\\), i.e., the gretest number of data points that can be shattered by \\(\mathcal{H}\\).
 
@@ -130,7 +130,7 @@ To prove that \\(g_{\mathcal{H}}(M) = C\\), you need to show
 > Henry's explanation: \\
 "At some point, your data sets are too small that even your simple linear decision boundaries can shatter 3 points. But once they get to 4 points now they're not going to be able to generate all possible labellings, and sort of some real learning can occur. For most hypothesis sets \\(\mathcal{H}\\), where they go from being able to shatter some set of **\\(M\\)** points to not being able to shatter some set of **\\(M+1\\)** one points. If you can shatter some set of endpoints, you should probably get more data before you use."
 
-## [Revisit VC Bound](#revisit)
+## [Revisit VC Bound](#revisit-vc-bound)
 
 Formally, we get a glimpse about the number of training data points \\(M\\) using this inequality equation:
 
@@ -160,7 +160,7 @@ We can basically plug the VC-dimension into this VC-Bound in place of the growth
 
 > Note that Growth funciton and VC-dimension are in Big O relationship. That is, it loses a lof of absolute meaning. Now it's much more of a comparative statement about given two hypothesis sets \\(\mathcal{H_1}\\) and \\(\mathcal{H_2}\\) with differing VC-dimensions. I can compare how many data points I would need for the pack criteria to be satisfied in **one setting versus the other**. We are more or less **ordering** hypothesis candidates.
 
-## [Trade Off in ML](#tradeoff)
+## [Trade Off in ML](#trade-off-in-ml)
 
 This observation again lead us to the fundamental question of Machine Learning: "How do I navigate this trade-off using a more complex model to fit whatever data I observe at the potential risk of *over fitting*?"
 
