@@ -165,7 +165,7 @@ We can basically plug the VC-dimension into this VC-Bound in place of the growth
 This observation again lead us to the fundamental question of Machine Learning: "How do I navigate this trade-off using a more complex model to fit whatever data I observe at the potential risk of *over fitting*?"
 
 $$
-R(h) \leq \hat{R}(h)+O\left(\sqrt{\frac{1}{M}\left(d_{vc}(\mathcal{H})+\log \left(\frac{1}{\delta}\right)\right)})\right.
+R(h) \leq \hat{R}(h)+O\left(\sqrt{\frac{1}{M}\left(d_{vc}(\mathcal{H})+\log \left(\frac{1}{\delta}\right)\right)}\right)
 $$
 
 Above expression shows this tension well, where \\(\hat{R}(h)\\) decreases as \\(d_{vc}(\mathcal{H})\\) increases and Big O term increases as \\(d_{vc}(\mathcal{H})\\) increases.
