@@ -114,10 +114,58 @@ then with probability at least \\(1-\delta\\), all \\(h \in H\\) with \\(R(h) \g
 - To walk around this issue, we introduce the concept of VC-Dimension.
 
 ## [VC Dimension](#vc-dim)
+
+VC-Dimension is the greatest number of data points that \\(H\\) can shatter. More formally, \\(d_{vc}(\mathcal{H})\\) = the **largest** value of \\(M\\) s.t. \\{g_{\mathcal{H}}(M) = 2^{M}\\), i.e., the gretest number of data points that can be shattered by \\(\mathcal{H}\\).
+
+- If \\(\mathcal{H}\\) can shatter arbitrarily large finite sets, then \\(d_{vc}(H) = \infty \Longleftrightarrow H \text{ can shatter any data set}\\).
+- \\(g_{\mathcal{H}}(M)=O\left(M^{d v c}(x)\right)\\) (Sauer-Shelah lemma)
+
+To prove that \\{g_{\mathcal{H}}(M) = C\\), you need to show
+
+1. \\(\exists\\) some set of \\(C\\) data points that \\(\mathcal{H}\\) can shatter and
+2. \\(\nexists\\) a set of \\(C + 1\\) data points that \\(\mathcal{H}\\) can shatter.
+
+\\(\Longleftrightarrow\\) **Finding tipping point**.
+
+> Henry's explanation: \
+"At some point, your data sets are too small that even your simple linear decision boundaries can shatter 3 points. But once they get to 4 points now they're not going to be able to generate all possible labellings, and sort of some real learning can occur. For most hypothesis sets \\(\mathcal{H}\\), where they go from being able to shatter some set of **\\(M\\)** points to not being able to shatter some set of **\\(M+1\\)** one points. If you can shatter some set of endpoints, you should probably get more data before you use."
+
 ## [Revisit VC Bound](#revisit)
+
+Formally, we get a glimpse about the number of training data points \\(M\\) using this inequality equation:
+
+$$
+M \geq \frac{2}{\varepsilon}\left(\log _2\left(2 g_{M}(2 M)\right)+\log _2\left(\frac{1}{\delta}\right)\right)
+$$
+
+However, this inequality equation had a problem of \\(M\\) appearing both side of the expression. However, using the notion of \\(d_{vc}(\mathcal{H})\\), we can now say: \
+For any hypothesis set \\(\mathcal{H}\\) and distribution \\(p*\\), if the number of labelled training data points satisfies
+
+$$
+M=O\left(\frac{1}{\varepsilon}\left(d_{vc}(\mathcal{H}) \log \left(\frac{1}{\varepsilon}\right)+\log \left(\frac{1}{\delta}\right)\right)\right)
+$$
+
+then the probability at least \\(1-\delta\\), all \\(h \in \mathcal{H}\\) with \\(\hat{R}(h)=0\\) have \\(\hat{R} \leq \\varepsilon\\).
+
+In other words, For any hypothesis set \\(\mathcal{H}\\) and distribution \\(p*\\), given a training data set \\(S\\), s.t. \\(\|S\| = M \\), all \\(h \in \mathcal{H}\\) with \\(\hat{R}(h)=0\\) have
+
+$$
+R(h) \leq O\left(\frac{1}{M}\left(d_{v c}(\mathcal{H}) \log \left(\frac{M}{d v c(H)}\right)+\log \left(\frac{1}{\delta}\right)\right)\right)
+$$
+
+with probability at least \\(1-\delta\\).
+
+> Key takeaway: \
+We can basically plug the VC-dimension into this VC-Bound in place of the growth function of \\(\mathcal(H}\\).
+
+> Note that Growth funciton and VC-dimension are in Big O relationship. That is, it loses a lof of absolute meaning. Now it's much more of a comparative statement about given two hypothesis sets \\(\mathcal{H_1}\\) and \\(\mathcal{H_2}\\) with differing VC-dimensions. I can compare how many data points I would need for the pack criteria to be satisfied in **one setting versus the other**. We are more or less **ordering** hypothesis candidates.
+
 ## [Trade Off in ML](#tradeoff)
 
----
-{: data-content="footnotes"}
+This observation again lead us to the fundamental question of Machine Learning: "How do I navigate this trade-off using a more complex model to fit whatever data I observe at the potential risk of *over fitting*?"
 
-[^1]: Content and explanation originally *[from this video](https://youtu.be/fTWm2S5tFCo?si=wL9cLp_45FGRwic6), SanITtips*
+$$
+R(h) \leq \hat{R}(h)+O\left(\sqrt{\left.\frac{1}{M}\left(d_{vc}(\mathcal{H})+\log \left(\frac{1}{\delta}\right)\right)\right)}\right.
+$$
+
+Above expression shows this tension well, where \\(\hat{R}(h)\\) decreases as \\(d_{vc}(\mathcal{H})\\) increases and Big O term increases as \\(d_{vc}(\mathcal{H})\\) increases.
