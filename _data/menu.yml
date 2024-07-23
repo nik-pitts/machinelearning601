@@ -4,14 +4,14 @@
 entries:
   - title: Machine Learning 601
     entries:
-      - title: Everyday - 1 hour - ML - in - Pittsburgh.
       - title: github repo
         url: https://github.com/nik-pitts/machinelearning601
+      - title: Everyday 1 hour ML Study
       - title: From Classic ML to Modern ML Algorithms and Mathematics
 
   - title: all posts
     post_list:
-      limit: 10
+      limit: 30
       show_more: true
       show_more_text: See archive...
       show_more_url: archive.html
