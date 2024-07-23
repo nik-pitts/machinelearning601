@@ -26,7 +26,7 @@ Although "Nik eats ravioli" and "Ravioli eats Nik" use exact same vocabulary, tw
   - Where the set of number come from?
     The numbers that represent the word order come from a sequence of alternating **Sine** and **Cosine** squiggles.
 
-    ![sine-and-cosine-for-positional-encoding](https://i.sstatic.net/Fhc4M.png)
+    ![sine-and-cosine-for-positional-encoding](https://erdem.pl/static/19d8bc54105d791137fcc2b1464c754f/1e5d2/dimension-comparision.png)
     *Usage of Sine and Cosine Token for Positional Encoding*[^2]
 
     But why repetitive Sine and Cosine graphs? Isn't it possible to have two different words might get the same position, or values?
@@ -119,7 +119,7 @@ This concept tells how Transformer keeps track of the relationships among words.
 {: data-content="footnotes"}
 
 [^1]: Figure from *[this article](https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/)*, Machine Learning Library
-[^2]: Figure from *[this article](https://datascience.stackexchange.com/questions/51065/what-is-the-positional-encoding-in-the-transformer-model)*
+[^2]: Figure from *[this article](https://erdem.pl/2021/05/understanding-positional-encoding-in-transformers)*
 [^3]: Figure from *[this article](https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/)*, Machine Learning Library
 [^4]: Figure from *[this article](https://newsletter.theaiedge.io/p/the-aiedge-everything-you-need-to)*, Damien Benveniste, The AiEdge+: Everything you need to know about the Attention Mechanism!, The AiEdge Newsletter
 [^5]: Description from *[this video](https://youtu.be/zxQyTK8quyY?si=HywqEHAlwe2Br0Ot)*, StatQuest with Josh Starmer, Transformer Neural Networks, ChatGPT's foundation, Clearly Explained!!!, 21:37 \~
