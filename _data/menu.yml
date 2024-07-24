@@ -18,13 +18,19 @@ entries:
 
   - title: posts by category
     entries:
-      - title: RNN
+      - title: Reinforcement Learning
+        post_list:
+          category: RL
+          show_more: true
+          show_more_text: See more posts...
+          #show_more_url: example2-archive.html    
+      - title: Recurrent Neural Network
         post_list:
           category: RNN
           show_more: true
           show_more_text: See more posts...
           #show_more_url: example2-archive.html
-      - title: NLP
+      - title: Natural Language Processing
         post_list:
           category: NLP
           show_more: true
