@@ -58,12 +58,11 @@ $$
 - \\(\gamma max Q\left(s_{t+1}, a_{t+1}\right)\\): The **biggest reward action** in the **next state**
   
 ## [Markov Decision Process](#markov-decision-process)
-*Markov Decision Process Diagram*[^3]
-
 
 ### Diagram
 
 ![markov-decision-process](https://velog.velcdn.com/images/ktm1237/post/4db6062b-c6f0-46f1-b8a7-b179d441b3ff/image.png)
+*Markov Decision Process Diagram*[^3]
 
 - \\(S_0\\): Starting State
   - Subsequent state \\(S_1, S_1, \dots, S_n\\) changes based on the actions the agent took.
