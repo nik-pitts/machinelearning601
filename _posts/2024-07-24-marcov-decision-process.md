@@ -9,7 +9,7 @@ This post covers **Marcov Decision Process** in detail, which forms a foundation
 
 - [Problem Formulation](#problem-formulation)
 - [Technical Definition of MDP](#technical-definition-of-mdp)
-- [3 Key Challenges of Reinforcment Learning](#3-key-challenges-of-reinforcement-learning)
+- [3 Key Challenges of Reinforcement Learning](#3-key-challenges-of-reinforcement-learning)
 - [RL Objective Function](#rl-objective-function)
 - [Football Example](#football-example)
 
@@ -53,7 +53,7 @@ In the context of reinforcement learning, we need to define what's known as ***D
    * In the case of infinite time horizon reward.
    - \\(\gamma\\) = Discount Factor, \\(\gamma \in (0,1) \\)
 
-## [3 Key Challenges of Reinforcment Learning](#3-key-challenges-of-reinforcement-learning)
+## [3 Key Challenges of Reinforcement Learning](#3-key-challenges-of-reinforcement-learning)
 
 1. The algorithm has to gather its own training data.
    You need to find some way of gathering this training data such that you are **able to learn a reasonable policy** from your own training data set.
