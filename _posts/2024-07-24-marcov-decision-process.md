@@ -8,10 +8,10 @@ This post covers **Marcov Decision Process** in detail, which forms a foundation
 ## Table of contents
 
 - [Problem Formulation](#problem-formulation)
-- [Technical Definition of MDP](technical-definition-of-MDP)
-- [3 Key Challenges of Reinforcment Learning](3-key-challenges-of-reinforcement-learning)
-- [RL Objective Function](rl-objective-function)
-- [Football Example](football-example)
+- [Technical Definition of MDP](#technical-definition-of-MDP)
+- [3 Key Challenges of Reinforcment Learning](#3-key-challenges-of-reinforcement-learning)
+- [RL Objective Function](#rl-objective-function)
+- [Football Example](#football-example)
 
 ## [Problem Formulation](#problem-formulation)
 
