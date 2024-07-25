@@ -82,12 +82,7 @@ In this context, the agent is going to figure out:
 
 ## [RL Objective Function](rl-objective-function)
 
-- Objective: Find a policy \\(\pi^*=\underset{\pi}{\arg \max } \ V^\pi(s) \ \forall \ s \in S\\)
-  - \\(\pi^*\\), optimal policy
-- \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} \ s \ \text{and executing policy} \ \pi \ \text{forever}\]\\)
-  - The value of being in some state \\(s\\) conditioned on, or subject to this policiy \\(\pi\\) is expected discounted total reward of starting in this state \\(s\\) and just following the policy \\(\pi\\) tells you to do in each state.
-
-> $$
+$$
 \begin{aligned}
 V^\pi(s)
 &=E_{p\left(s^{\prime} \mid s, a\right)}
@@ -96,6 +91,11 @@ V^\pi(s)
 & =\sum_{t=0}^{\infty} \gamma^t E_{p\left(s^{\prime} \mid s, a\right)}\left[R\left(S_t, \pi\left(S_t\right)\right)\right],\ (\text{for some} \ 0<\gamma<1)
 \end{aligned}
 $$
+
+- Objective: Find a policy \\(\pi^*=\underset{\pi}{\arg \max } \ V^\pi(s) \ \forall \ s \in S\\)
+  - \\(\pi^*\\), optimal policy
+- \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} \ s \ \text{and executing policy} \ \pi \ \text{forever}\]\\)
+  - The value of being in some state \\(s\\) conditioned on, or subject to this policiy \\(\pi\\) is expected discounted total reward of starting in this state \\(s\\) and just following the policy \\(\pi\\) tells you to do in each state.
 
 > \\(E_{p(s^{\prime})\\): This expectation is going to be w.r.t my stochastic transition. \
   \\(\Leftrightarrow\\) Distribution over next state \\(s'\\) given my current state \\(s\\), and my current action \\(a\\)
@@ -136,7 +136,7 @@ State 2: \\(5.67 \\) \
 State 3: \\(6.3 \\) \
 State 4: \\(7 \\)
 
-* Note that reward values in each of the states across the board are higher under the second policy tha the first one. And this is the equivalence between the optimal policy and the maximul value function. \\(\Leftrightarrow\\) The optimal policy maximizes the value function in every state. 
+Note that reward values in each of the states across the board are higher under the second policy tha the first one. And this is the equivalence between the optimal policy and the maximul value function. \\(\Leftrightarrow\\) The optimal policy maximizes the value function in every state. 
 
 ---
 {: data-content="footnotes"}
