@@ -43,9 +43,9 @@ In the context of reinforcement learning, we need to define what's known as ***D
    1. Agent observes state \\(s_t\\)
    2. Agent takes action \\(a_t = \pi(s_t)\\)
       Based on some policy, not necessarily the optimal policy based on some mechanism, it takes an action in that state.
-   3. Agent recieves reward \\(r_t \tilde p(r \| s_t, a_t)\\)
+   3. Agent recieves reward \\(r_t \sim p(r \| s_t, a_t)\\)
       Recives some reward, here it is written out stochastically, but this could be deterministic.
-   4. Agent transitions to state \\(s_{t+1} \tilde p(s' \| s_t, a_t)\\)
+   4. Agent transitions to state \\(s_{t+1} \sim p(s' \| s_t, a_t)\\)
       Ends up in some new state. \
    → These 2.1 ~ 2.4 creates training data set and are observation in my training data set. Also called as **observation tuple**. \
    → We repeat this until we hit some terminal state or until we reach some time horizon.
@@ -87,20 +87,20 @@ In this context, the agent is going to figure out:
 - \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} \ s \ \text{and executing policy} \ \pi \ \text{forever}\]\\)
   - The value of being in some state \\(s\\) conditioned on, or subject to this policiy \\(\pi\\) is expected discounted total reward of starting in this state \\(s\\) and just following the policy \\(\pi\\) tells you to do in each state.
 
-$$
+- $$
 \begin{aligned}
 V^\pi(s)
 &=E_{p\left(s^{\prime} \mid s, a\right)}
 {\left[R\left(S_0=s, \pi\left(S_0\right)\right)+\gamma R\left(S_1, \pi\left(S_1\right)\right)\right.}
 \left.+\gamma^2 R\left(S_2, \pi\left(S_2\right)\right)+\cdots\right] \\
-& =\sum_{t=0}^{\infty} \gamma^t E_{p\left(s^{\prime} \mid s, a\right)}\left[R\left(S_t, \pi\left(S_t\right)\right)\right],\ (\text{for some} 0<\gamma<1)
+& =\sum_{t=0}^{\infty} \gamma^t E_{p\left(s^{\prime} \mid s, a\right)}\left[R\left(S_t, \pi\left(S_t\right)\right)\right],\ (\text{for some} \ 0<\gamma<1)
 \end{aligned}
 $$
 
-> - \\(E_{p\left(s^{\prime}\\): This expectation is going to be w.r.t my stochastic transition. \
-  \\(\leftrightarrow\\) Distribution over next state \\(s'\\) given my current state \\(s\\), and my current action \\(a\\) \
-  - \\(s_0\\): Initial state \
-  - \\(\pi \(s_0\)\\): Take action \\(\pi\\) in the state \\(s_0\\) \
+> - \\(E_{p\left(s^{\prime}\right)\\): This expectation is going to be w.r.t my stochastic transition. \
+  \\(\Leftrightarrow\\) Distribution over next state \\(s'\\) given my current state \\(s\\), and my current action \\(a\\)
+  - \\(s_0\\): Initial state
+  - \\(\pi \(s_0\)\\): Take action \\(\pi\\) in the state \\(s_0\\)
   - \\(\gamma\\): Discounted amount
 
 > **Lineartiy of expectations**
@@ -110,10 +110,10 @@ $$
 
 $$
 R(s, a)=\left\{\begin{array}{c}
--2 \ (if entering state 0) \\
-3 \ (if entering state 5) \\
-7 \ (if entering state 6) \\
-0 \ (other wise)
+-2 \ (\text{if entering state 0}) \\
+3 \ (\text{if entering state 5}) \\
+7 \ (\text{if entering state 6}) \\
+0 \ (\text{other wise})
 \end{array}\right.
 $$
 
@@ -124,17 +124,17 @@ $$
 
 ![football-example](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-24-rl-football-example.jpeg)
 
-State 1: \\(-2 + \gamma(0) = -2 \\)
-State 2: \\(0 + \gamma(-2) = -1.8 \\)
-State 3: \\(0 + \gamma(3) = 2.7 \\)
-State 4: \\(3 + \gamma(0) = 3 \\)
+State 1: \\(-2 + \gamma(0) = -2 \\) \
+State 2: \\(0 + \gamma(-2) = -1.8 \\) \
+State 3: \\(0 + \gamma(3) = 2.7 \\) \
+State 4: \\(3 + \gamma(0) = 3 \\) \
 
 ![football-example-optimal](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-24-rl-football-example-optimal.jpeg)
 
-State 1: \\(5.103 \\)
-State 2: \\(5.67 \)
-State 3: \\(6.3 \\)
-State 4: \\(7 \\)
+State 1: \\(5.103 \\) \
+State 2: \\(5.67 \\) \
+State 3: \\(6.3 \\) \
+State 4: \\(7 \\) \
 
 * Note that reward values in each of the states across the board are higher under the second policy tha the first one. And this is the equivalence between the optimal policy and the maximul value function. \\(Longleftrightarrow\\) The optimal policy maximizes the value function in every state. 
 
