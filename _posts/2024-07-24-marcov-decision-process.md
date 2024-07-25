@@ -8,7 +8,7 @@ This post covers **Marcov Decision Process** in detail, which forms a foundation
 ## Table of contents
 
 - [Problem Formulation](#problem-formulation)
-- [Technical Definition of MDP](#technical-definition-of-MDP)
+- [Technical Definition of MDP](#technical-definition-of-mdp)
 - [3 Key Challenges of Reinforcment Learning](#3-key-challenges-of-reinforcement-learning)
 - [RL Objective Function](#rl-objective-function)
 - [Football Example](#football-example)
@@ -34,7 +34,7 @@ This post covers **Marcov Decision Process** in detail, which forms a foundation
   - Some measure of how good the *policy* \\(\pi\\) is, given an initial state \\(S\\)
   - Optimal policy maximizes value function in every state.
   
-## [Technical Definition of MDP](technical-definition-of-MDP)
+## [Technical Definition of MDP](#technical-definition-of-mdp)
 
 In the context of reinforcement learning, we need to define what's known as ***Data Generation Process**. The idea is reinforcement learning algorithms, they're going to require some sort of training data to learn from, but *where does that training data come from?*. 
 
@@ -53,7 +53,7 @@ In the context of reinforcement learning, we need to define what's known as ***D
    * In the case of infinite time horizon reward.
    - \\(\gamma\\) = Discount Factor, \\(\gamma \in (0,1) \\)
 
-## [3 Key Challenges of Reinforcment Learning](3-key-challenges-of-reinforcement-learning)
+## [3 Key Challenges of Reinforcment Learning](#3-key-challenges-of-reinforcement-learning)
 
 1. The algorithm has to gather its own training data.
    You need to find some way of gathering this training data such that you are **able to learn a reasonable policy** from your own training data set.
@@ -80,7 +80,7 @@ In this context, the agent is going to figure out:
 
 > As point 1 and 2 describe, it is not an easy problem to learn optimal solutions while dynamics of the system is *unknown*.
 
-## [RL Objective Function](rl-objective-function)
+## [RL Objective Function](#rl-objective-function)
 
 $$
 \begin{aligned}
@@ -106,7 +106,7 @@ $$
 > **Linearity of expectations**
   Expected value of a sum = equal to the sum of the expected values of each term.
 
-## [Example](example)
+## [Football Example](#football-example)
 
 $$
 R(s, a)=\left\{\begin{array}{c}
