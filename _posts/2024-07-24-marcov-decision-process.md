@@ -87,7 +87,7 @@ In this context, the agent is going to figure out:
 - \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} \ s \ \text{and executing policy} \ \pi \ \text{forever}\]\\)
   - The value of being in some state \\(s\\) conditioned on, or subject to this policiy \\(\pi\\) is expected discounted total reward of starting in this state \\(s\\) and just following the policy \\(\pi\\) tells you to do in each state.
 
-- $$
+> $$
 \begin{aligned}
 V^\pi(s)
 &=E_{p\left(s^{\prime} \mid s, a\right)}
@@ -97,13 +97,13 @@ V^\pi(s)
 \end{aligned}
 $$
 
-> - \\(E_{p\left(s^{\prime}\right)\\): This expectation is going to be w.r.t my stochastic transition. \
+> \\(E_{p(s^{\prime})\\): This expectation is going to be w.r.t my stochastic transition. \
   \\(\Leftrightarrow\\) Distribution over next state \\(s'\\) given my current state \\(s\\), and my current action \\(a\\)
   - \\(s_0\\): Initial state
   - \\(\pi \(s_0\)\\): Take action \\(\pi\\) in the state \\(s_0\\)
   - \\(\gamma\\): Discounted amount
 
-> **Lineartiy of expectations**
+> **Linearity of expectations**
   Expected value of a sum = equal to the sum of the expected values of each term.
 
 ## [Example](example)
@@ -127,16 +127,16 @@ $$
 State 1: \\(-2 + \gamma(0) = -2 \\) \
 State 2: \\(0 + \gamma(-2) = -1.8 \\) \
 State 3: \\(0 + \gamma(3) = 2.7 \\) \
-State 4: \\(3 + \gamma(0) = 3 \\) \
+State 4: \\(3 + \gamma(0) = 3 \\)
 
 ![football-example-optimal](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-24-rl-football-example-optimal.jpeg)
 
 State 1: \\(5.103 \\) \
 State 2: \\(5.67 \\) \
 State 3: \\(6.3 \\) \
-State 4: \\(7 \\) \
+State 4: \\(7 \\)
 
-* Note that reward values in each of the states across the board are higher under the second policy tha the first one. And this is the equivalence between the optimal policy and the maximul value function. \\(Longleftrightarrow\\) The optimal policy maximizes the value function in every state. 
+* Note that reward values in each of the states across the board are higher under the second policy tha the first one. And this is the equivalence between the optimal policy and the maximul value function. \\(\Leftrightarrow\\) The optimal policy maximizes the value function in every state. 
 
 ---
 {: data-content="footnotes"}
