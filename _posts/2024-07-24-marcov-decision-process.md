@@ -3,7 +3,7 @@ layout: post
 category: RL
 ---
 
-This post covers **Marcov Decision Process** in detail, which forms a foundation of Reinforcement Learning.
+This post covers **Marcov Decision Process** in detail, which forms a foundation of Reinforcement Learning. Written in reference to CMU 10401/601 taught by Henry Chai.
 
 ## Table of contents
 
@@ -11,6 +11,7 @@ This post covers **Marcov Decision Process** in detail, which forms a foundation
 - [Technical Definition of MDP](technical-definition-of-MDP)
 - [3 Key Challenges of Reinforcment Learning](3-key-challenges-of-reinforcement-learning)
 - [RL Objective Function](rl-objective-function)
+- [Football Example](football-example)
 
 ## [Problem Formulation](#problem-formulation)
 
@@ -20,7 +21,7 @@ This post covers **Marcov Decision Process** in detail, which forms a foundation
 - Action Space \\(A\\)
 - Reward Function
   There are two different reward functions that leads to different definitions of the problem at a high-level, but these two functions do the same following thing: Reward function tells you how good some actions is in some state.
-  - Stochastic, \\(p(r\|s, a)
+  - Stochastic, \\(p(r\|s, a)\\)
     Returns *distribution* over rewards given some state and action.
   - Deterministic, \\(R: S \times A \rightarrow \mathbb{R}\\)
 - Transition Function
@@ -83,8 +84,59 @@ In this context, the agent is going to figure out:
 
 - Objective: Find a policy \\(\pi^*=\underset{\pi}{\arg \max } \ V^\pi(s) \ \forall \ s \in S\\)
   - \\(\pi^*\\), optimal policy
-- \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} s \text{and executing policy} \pi \text{forever}\]\\)
+- \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} \ s \ \text{and executing policy} \ \pi \ \text{forever}\]\\)
   - The value of being in some state \\(s\\) conditioned on, or subject to this policiy \\(\pi\\) is expected discounted total reward of starting in this state \\(s\\) and just following the policy \\(\pi\\) tells you to do in each state.
+
+$$
+\begin{aligned}
+V^\pi(s)
+&=E_{p\left(s^{\prime} \mid s, a\right)}
+{\left[R\left(S_0=s, \pi\left(S_0\right)\right)+\gamma R\left(S_1, \pi\left(S_1\right)\right)\right.}
+\left.+\gamma^2 R\left(S_2, \pi\left(S_2\right)\right)+\cdots\right] \\
+& =\sum_{t=0}^{\infty} \gamma^t E_{p\left(s^{\prime} \mid s, a\right)}\left[R\left(S_t, \pi\left(S_t\right)\right)\right],\ (\text{for some} 0<\gamma<1)
+\end{aligned}
+$$
+
+> - \\(E_{p\left(s^{\prime}\\): This expectation is going to be w.r.t my stochastic transition. \
+  \\(\leftrightarrow\\) Distribution over next state \\(s'\\) given my current state \\(s\\), and my current action \\(a\\) \
+  - \\(s_0\\): Initial state \
+  - \\(\pi \(s_0\)\\): Take action \\(\pi\\) in the state \\(s_0\\) \
+  - \\(\gamma\\): Discounted amount
+
+> **Lineartiy of expectations**
+  Expected value of a sum = equal to the sum of the expected values of each term.
+
+## [Example](example)
+
+$$
+R(s, a)=\left\{\begin{array}{c}
+-2 \ (if entering state 0) \\
+3 \ (if entering state 5) \\
+7 \ (if entering state 6) \\
+0 \ (other wise)
+\end{array}\right.
+$$
+
+- **Value is always defined relative to some policy.**
+- Blue arrows in the image represent policies. Under this policy condition, if we calculate reward:
+- \\(\gamma = 0.9\\).
+- Using my discount factor, I can actually develop sort of *preferences*.
+
+![football-example](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-24-rl-football-example.jpeg)
+
+State 1: \\(-2 + \gamma(0) = -2 \\)
+State 2: \\(0 + \gamma(-2) = -1.8 \\)
+State 3: \\(0 + \gamma(3) = 2.7 \\)
+State 4: \\(3 + \gamma(0) = 3 \\)
+
+![football-example-optimal](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2024-07-24-rl-football-example-optimal.jpeg)
+
+State 1: \\(5.103 \\)
+State 2: \\(5.67 \)
+State 3: \\(6.3 \\)
+State 4: \\(7 \\)
+
+* Note that reward values in each of the states across the board are higher under the second policy tha the first one. And this is the equivalence between the optimal policy and the maximul value function. \\(Longleftrightarrow\\) The optimal policy maximizes the value function in every state. 
 
 ---
 {: data-content="footnotes"}
