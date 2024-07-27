@@ -13,7 +13,7 @@ This post covers **Value Function and Policy Interation Algorithms** of Reinforc
 
 Recall the concept of value function below:
 
-\\(V^\pi(s)=\mathbb{E}$ [discounted total reward of starting in state $s$ and executing policy $\pi$ forever]\\)
+\\(V^\pi(s)=\mathbb{E}\\) [discounted total reward of starting in state \\(s\\) and executing policy \\(\pi\\) forever]
 
 In a more precise and quantitative manner, we can re-write our value function:
 
