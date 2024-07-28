@@ -34,7 +34,7 @@ V^\pi(s) = \mathbb{E}\left[R\left(s_0, \pi\left(s_0\right)\right) + \gamma R\lef
 $$
 
 - \\(V^\pi(s)\\): Expected sum of rewards
-- \\(\mathbb{E}\left[R\left(s_t, \pi\left(s_t\right)\right])\\): Reward received when taking action \\(\pi\(s_t\)\\) in state \\(s_t\\).
+- \\(\mathbb{E}\left[R\left(s_t, \pi\left(s_t\right)\right)\right]\\): Reward received when taking action \\(\pi\(s_t\)\\) in state \\(s_t\\).
 - \\(\gamma\\): Discount factor
 
 2. Recursive Formulation
@@ -51,16 +51,13 @@ This equation expresses the value function recursively. The value of starting in
 3. Incorporating State Transition Probabilities
 
 $$
-R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\right[R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\right[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\]\]
+R(s, \pi(s)) + \gamma \sum_{s_1} p\left(s_1 \mid s, \pi(s)\right) \left[ R\left(s_1, \pi\left(s_1\right)\right) + \gamma \mathbb{E}\left[ R\left(s_2, \pi\left(s_2\right)\right) + \cdots \mid s_1 \right] \right]
 $$
 
-- p\left(s_1 \mid s, \pi(s)\right): Probability of transitioning **to state \\(s_1\\) from state \\(s\\)** when action \\(\pi(s)\\) is taken.
-- The term inside the sum, \\(R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\]\\) represents the expected return starting from state \\(s_1\\) and following the policy \\(\pi\\).
+- \\(p\left(s_1 \mid s, \pi(s)\right)\\): Probability of transitioning **to state \\(s_1\\) from state \\(s\\)** when action \\(\pi(s)\\) is taken.
+- The term inside the sum, \\(R\left(s_1, \pi\left(s_1\right)\right) + \gamma \mathbb{E}\left[R\left(s_2, \pi\left(s_2\right)\right) + \cdots \mid s_1\right]\\) represents the expected return starting from state \\(s_1\\) and following the policy \\(\pi\\).
 
-> Transition Probability Notation \
-$$
-p(s' \| s, a)
-$$
+> Transition Probability Notation: \\(p\left(s'|s,a\right)\\)
 - \\(s'\\): **Current** state
 - \\(a\\): **Action** taken in state \\(s\\)
 - \\(s'\\): **Next** state
