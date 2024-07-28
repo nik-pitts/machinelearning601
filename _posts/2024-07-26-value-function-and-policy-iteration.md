@@ -21,31 +21,50 @@ $$
 \begin{align}
 V^\pi(s) & = \mathbb{E}\left[R\left(s_0, \pi\left(s_0\right)\right)+\gamma R\left(s_1, \pi\left(s_1\right)\right)+\gamma^2 R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_0=s\right] \\
 &=R(s, \pi(s))+\gamma \mathbb{E}\left[R\left(s_1, \pi\left(s_1\right)\right)+\gamma R\left(s_2, \pi\left(s_2\right)\right)+\ldots \mid s_0=s\right] \\
-&=R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\left(R\left(s_1, \pi\left(s_1\right)\right)\right.
-\left.\quad+\gamma \mathbb{E}\left[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\right]\right)
+&=R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\left(R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\left[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\right]\right)
 \end{align}
 $$
 
-### Terms
+### Step by Step Break Down
 
-- State Space \\(S\\)
-- Action Space \\(A\\)
-- Reward Function
-  There are two different reward functions that leads to different definitions of the problem at a high-level, but these two functions do the same following thing: Reward function tells you how good some actions is in some state.
-  - Stochastic, \\(p(r\|s, a)\\)
-    Returns *distribution* over rewards given some state and action.
-  - Deterministic, \\(R: S \times A \rightarrow \mathbb{R}\\)
-- Transition Function
-  Every action I take brings me to a new state that can again either be a deterministic function \\(f\\) or some distribution over next states.
-  - Stochastic, \\(p(s'\|s,a)\\)
-  - Deterministic, \\(\delta: S \times A \rightarrow S\\)
-- Policy \\(\pi: S \rightarrow A\\)
-  Specifies an action to take in every state. This that we are trying to learn.
-- Value Function \\(V^{\pi}: S \rightarrow \mathbb{R}\\)
-  - Some measure of how good the *policy* \\(\pi\\) is, given an initial state \\(S\\)
-  - Optimal policy maximizes value function in every state.
+1. Definition of Value Function
 
-Our goal is to define our value function in a recursive way.
+$$
+V^\pi(s) & = \mathbb{E}\left[R\left(s_0, \pi\left(s_0\right)\right)+\gamma R\left(s_1, \pi\left(s_1\right)\right)+\gamma^2 R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_0=s\right]
+$$
+
+- \\(V^\pi(s)\\): Expected sum of rewards
+- \\(\mathbb{E}\left[R\left(s_t, \pi\left(s_t\right)\right)\\): Reward received when taking action \\(\pi\(s_t\)\\) in state \\(s_t\\).
+- \\(\gamma\\): Discount factor
+
+2. Recursive Formulation
+
+$$
+R(s, \pi(s))+\gamma \mathbb{E}\left[R\left(s_1, \pi\left(s_1\right)\right)+\gamma R\left(s_2, \pi\left(s_2\right)\right)+\ldots \mid s_0=s\right]
+$$
+
+This equation expresses the value function recursively. The value of starting in state \\(s\\) and following policy \\(\pi\\) is the *immediate reward* **plus** the discounted expected value of the *subsequent states*.
+
+- \\(R(s, \pi(s))\\): Immediate reward for taking action \\(\pi(s)\\) in state \\(s\\).
+- The second term represents the discounted expected value of future rewards starting from state \\(s_1\\).
+
+3. Incorporating State Transition Probabilities
+
+$$
+R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\left[R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\left[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\right]\right]
+$$
+
+- p\left(s_1 \mid s, \pi(s)\right): Probability of transitioning **to state \\(s_1\\) from state \\(s\\)** when action \\(\pi(s)\\) is taken.
+- The term inside the sum, \\(R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\left[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\right]\\) represents the expected return starting from state \\(s_1\\) and following the policy \\(\pi\\).
+
+> Transition Probability Notation \
+$$
+p\(s' \| s, a\)
+$$
+- \\(s'\\): **Current** state
+- \\(a\\): **Action** taken in state \\(s\\)
+- \\(s'\\): **Next** state
+
   
 ---
 {: data-content="footnotes"}
