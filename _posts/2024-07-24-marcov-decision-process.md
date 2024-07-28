@@ -97,7 +97,7 @@ $$
 - \\(V^\pi(s) = E\[\text{discounted total reward of starting in state} \ s \ \text{and executing policy} \ \pi \ \text{forever}\]\\)
   - The value of being in some state \\(s\\) conditioned on, or subject to this policiy \\(\pi\\) is expected discounted total reward of starting in this state \\(s\\) and just following the policy \\(\pi\\) tells you to do in each state.
 
-> \\(E_{p(s^{\prime})\\): This expectation is going to be w.r.t my stochastic transition. \
+> \\(E_{p(s^{\prime}\)\\): This expectation is going to be w.r.t my stochastic transition. \
   \\(\Leftrightarrow\\) Distribution over next state \\(s'\\) given my current state \\(s\\), and my current action \\(a\\)
   - \\(s_0\\): Initial state
   - \\(\pi \(s_0\)\\): Take action \\(\pi\\) in the state \\(s_0\\)
