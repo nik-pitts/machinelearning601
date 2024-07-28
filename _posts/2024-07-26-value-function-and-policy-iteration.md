@@ -19,9 +19,9 @@ In a more precise and quantitative manner, we can re-write our value function:
 
 $$
 \begin{align}
-V^\pi(s) & = \mathbb{E}\[R\left(s_0, \pi\left(s_0\right)\right)+\gamma R\left(s_1, \pi\left(s_1\right)\right)+\gamma^2 R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_0=s\] \\
-&=R(s, \pi(s))+\gamma \mathbb{E}\[R\left(s_1, \pi\left(s_1\right)\right)+\gamma R\left(s_2, \pi\left(s_2\right)\right)+\ldots \mid s_0=s\] \\
-&=R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\left(R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\left\[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\]\right)
+V^\pi(s) &= \mathbb{E}\left[R\left(s_0, \pi\left(s_0\right)\right) + \gamma R\left(s_1, \pi\left(s_1\right)\right) + \gamma^2 R\left(s_2, \pi\left(s_2\right)\right) + \cdots \mid s_0 = s\right] \\
+&= R(s, \pi(s)) + \gamma \mathbb{E}\left[R\left(s_1, \pi\left(s_1\right)\right) + \gamma R\left(s_2, \pi\left(s_2\right)\right) + \cdots \mid s_0 = s\right] \\
+&= R(s, \pi(s)) + \gamma \sum_{s_1} p\left(s_1 \mid s, \pi(s)\right) \left( R\left(s_1, \pi\left(s_1\right)\right) + \gamma \mathbb{E}\left[ R\left(s_2, \pi\left(s_2\right)\right) + \cdots \mid s_1 \right] \right)
 \end{align}
 $$
 
