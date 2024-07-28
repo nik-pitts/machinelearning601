@@ -30,17 +30,17 @@ $$
 1. Definition of Value Function
 
 $$
-V^\pi(s) = \mathbb{E}\[R\left(s_0, \pi\left(s_0\right)\right)+\gamma R\left(s_1, \pi\left(s_1\right)\right)+\gamma^2 R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_0=s\]
+V^\pi(s) = \mathbb{E}\left[R\left(s_0, \pi\left(s_0\right)\right) + \gamma R\left(s_1, \pi\left(s_1\right)\right) + \gamma^2 R\left(s_2, \pi\left(s_2\right)\right) + \cdots \mid s_0 = s\right]
 $$
 
 - \\(V^\pi(s)\\): Expected sum of rewards
-- \\(\mathbb{E}\[R\left(s_t, \pi\left(s_t\right)\])\\): Reward received when taking action \\(\pi\(s_t\)\\) in state \\(s_t\\).
+- \\(\mathbb{E}\left[R\left(s_t, \pi\left(s_t\right)\right])\\): Reward received when taking action \\(\pi\(s_t\)\\) in state \\(s_t\\).
 - \\(\gamma\\): Discount factor
 
 2. Recursive Formulation
 
 $$
-R(s, \pi(s))+\gamma \mathbb{E}\[R\left(s_1, \pi\left(s_1\right)\right)+\gamma R\left(s_2, \pi\left(s_2\right)\right)+\ldots \mid s_0=s\]
+R(s, \pi(s))+\gamma \mathbb{E}\left[R\left(s_1, \pi\left(s_1\right)\right)+\gamma R\left(s_2, \pi\left(s_2\right)\right)+\ldots \mid s_0=s\right]
 $$
 
 This equation expresses the value function recursively. The value of starting in state \\(s\\) and following policy \\(\pi\\) is the *immediate reward* **plus** the discounted expected value of the *subsequent states*.
@@ -51,7 +51,7 @@ This equation expresses the value function recursively. The value of starting in
 3. Incorporating State Transition Probabilities
 
 $$
-R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\[R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\]\]
+R(s, \pi(s))+\gamma \sum_{s_1 \in s} p\left(s_1 \mid s, \pi(s)\right)\right[R\left(s_1, \pi\left(s_1\right)\right)\right\left +\gamma \mathbb{E}\right[R\left(s_2, \pi\left(s_2\right)\right)+\cdots \mid s_1\]\]
 $$
 
 - p\left(s_1 \mid s, \pi(s)\right): Probability of transitioning **to state \\(s_1\\) from state \\(s\\)** when action \\(\pi(s)\\) is taken.
