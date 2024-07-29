@@ -107,7 +107,7 @@ $$
 x^2 - x - 1 = 0
 $$
 
-1. Set equation \\(x = \text{something}\\)
+1. Set equation \\(x = \text{something}\\) \
    $$
    x_{n+1}=1+\frac{1}{x_n}
    $$
@@ -117,9 +117,9 @@ $$
    $$
 3. Repeat \\(x_3\\), \\(x_4\\), \\(\dots\\)
    $$
-   x_3 = 1 + \frac{1}{1.5} = 1.6666 \\
-   x_4 = 1 + \frac{1}{1.6666} = 1.6 \\
-   x_5 = 1 + \frac{1}{1.6} = 1.625 \\
+   x_3 = 1 + \frac{1}{1.5} = 1.6666 \newline
+   x_4 = 1 + \frac{1}{1.6666} = 1.6 \newline
+   x_5 = 1 + \frac{1}{1.6} = 1.625 \newline
    x_6 = 1 + \frac{1}{1.625} = 1.612538462
    $$
 4. Converging to \\(1.618 \dots\\)
@@ -128,7 +128,7 @@ $$
 
 #### When Converge?
 
-- When expressing \\(f(x)=0\\) as \\(x=g(x)\\), choose such that \\(\|g'(x)\| < 1 \text{ at} x = x_o \text{ where} x_o\\) is some initial guess called *fixed point iterative scheme*.[^3]
+- When expressing \\(f(x)=0\\) as \\(x=g(x)\\), choose such that \\(\|g'(x)\| < 1 \text{ at } x = x_o \text{ where } x_o\\) is some initial guess called *fixed point iterative scheme*.[^3]
 - The fact that the discount factor is strictly less than one means that in the reinforcement setting, fixed point iteration will converge to the optimal value function. 
   
 ---
