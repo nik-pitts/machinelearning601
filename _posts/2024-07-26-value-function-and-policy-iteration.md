@@ -170,7 +170,7 @@ $$
 - Inputs: \\(R(s, a), p\left(s^{\prime} \mid s, a\right)\\)
 - Initialize \\(\pi\\) randomly
 - While not converged, do:
-- Solve the Bellman equations defined by policy \(\pi\\)
+- Solve the Bellman equations defined by policy \\(\pi\\)
   $$
   \mathrm{V}^\pi(\mathrm{s})=R(s, \pi(s))+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s, \pi(s)\right) V^\pi\left(s^{\prime}\right)
   $$
@@ -185,8 +185,8 @@ $$
 - In policy iteration, the policy improves in each iteration.
 - Given finite state and action spaces, there are finitely many possible policies
 - Thus, the number of iterations needed to converge is bounded!
-- Value iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|\right)\\) time / iteration
-- Policy iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|+|\mathcal{S}|^3\right)\\) time / iteration
+- Value iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|\right)\\) time \/ iteration
+- Policy iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|+|\mathcal{S}|^3\right)\\) time \/ iteration
 - However, empirically policy iteration requires fewer iterations to converge
 
 ---
