@@ -185,8 +185,8 @@ $$
 - In policy iteration, the policy improves in each iteration.
 - Given finite state and action spaces, there are finitely many possible policies
 - Thus, the number of iterations needed to converge is bounded!
-- Value iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|\right)\\) time \/ iteration
-- Policy iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|+|\mathcal{S}|^3\right)\\) time \/ iteration
+- Value iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|\right)\\) time per iteration
+- Policy iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|+|\mathcal{S}|^3\right)\\) time per iteration
 - However, empirically policy iteration requires fewer iterations to converge
 
 ---
