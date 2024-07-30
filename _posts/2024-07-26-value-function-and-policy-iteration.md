@@ -10,6 +10,8 @@ This post covers **Value Function and Policy Interation Algorithms** of Reinforc
 - [Value Function](#value-function)
 - [Optimality](#optimality)
 - [Fixed Point Iteration](#fixed-point-iteration)
+- [Value Iteration](#value-iteration)
+- [Policy Iteration](#policy-iteration)
 
 ## [Value Function](#value-function)
 
@@ -129,13 +131,71 @@ $$
 #### When Converge?
 
 - When expressing \\(f(x)=0\\) as \\(x=g(x)\\), choose such that \\(\|g'(x)\| < 1 \text{ at } x = x_o \text{ where } x_o\\) is some initial guess called *fixed point iterative scheme*.[^3]
-- The fact that the discount factor is strictly less than one means that in the reinforcement setting, fixed point iteration will converge to the optimal value function. 
-  
+- The fact that the discount factor is strictly less than one means that in the reinforcement setting, fixed point iteration will converge to the optimal value function.
+
+## [Value Iteration](#value-iteration)[^4]
+
+- Inputs: \\(R(s, a), p\left(s^{\prime} \mid s, a\right)\\)
+- Initialize \\(V^{(0)}(s)=0 \forall s \in \mathcal{S}\\) (or randomly) and set \\(t=0\)
+- While not converged, do:
+- For \\(s \in \mathcal{S}\\)
+   - For \\(a \in \mathcal{A}\\)
+     $$
+     \begin{aligned}
+     & \quad Q(s, a)=R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s, a\right) V^{(t)}\left(s^{\prime}\right)
+     \end{aligned}
+     $$
+   - \\(V^{(t+1)}(s) \leftarrow \max _{a \in \mathcal{A}} Q(s, a) \\)
+- \\(t=t+1\\)
+- For \\(s \in \mathcal{S}\\)
+  $$
+  \pi^*(s) \leftarrow \underset{a \in \mathcal{A}}{\operatorname{argmax}} R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s, a\right) V^{(t)}\left(s^{\prime}\right)
+  $$
+- Return \\(\pi^*\\)
+
+### Value Iteration Theory
+
+- Theorem 1: Value function convergence \
+  \\(V\\) will converge to $V^*$ if each state is "visited" infinitely often (Bertsekas, 1989)
+- Theorem 2: Convergence criterion
+  $$
+  \text { if } \max _{S \in S}\left|V^{(t+1)}(s)-V^{(t)}(s)\right|<\epsilon,
+  $$
+  then \\(\max _{s \in \mathcal{S}}\left|V^{(t+1)}(s)-V^*(s)\right|<\frac{2 \epsilon \gamma}{1-\gamma}\\) (Williams \& Baird, 1993)
+- Theorem 3: Policy convergence
+  The "greedy" policy, \\(\pi(s)=\underset{a \in \mathcal{A}}{\operatorname{argmax}} Q(s, a)\\), converges to the \\(a \in \mathcal{A}\\) optimal \\(\pi^*\\) in a finite number of iterations, often before the value function has converged (Bertsekas, 1987)
+
+## [Policy Iteration](#policy-iteration)[^5]
+
+- Inputs: \\(R(s, a), p\left(s^{\prime} \mid s, a\right)\\)
+- Initialize \\(\pi\\) randomly
+- While not converged, do:
+- Solve the Bellman equations defined by policy \(\pi\\)
+  $$
+  \mathrm{V}^\pi(\mathrm{s})=R(s, \pi(s))+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s, \pi(s)\right) V^\pi\left(s^{\prime}\right)
+  $$
+- Update \\(\pi\\)
+  $$
+  \pi(s) \leftarrow \underset{a \in \mathcal{A}}{\operatorname{argmax}} R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s, a\right) V^\pi\left(s^{\prime}\right)
+  $$
+- Return \\(\pi\\)
+
+### Policy Iteration Theory
+
+- In policy iteration, the policy improves in each iteration.
+- Given finite state and action spaces, there are finitely many possible policies
+- Thus, the number of iterations needed to converge is bounded!
+- Value iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|\right)\\) time / iteration
+- Policy iteration takes \\(O\left(|\mathcal{S}|^2|\mathcal{A}|+|\mathcal{S}|^3\right)\\) time / iteration
+- However, empirically policy iteration requires fewer iterations to converge
+
 ---
 {: data-content="footnotes"}
 
 [^1]: Reference *[this video](https://youtu.be/OLqdJMjzib8?si=Pw0xD966jp1S3cKr)*, Fixed Point Iteration, Oscar Veliz
 [^2]: Same Video, 0:32
 [^3]: Reference *[this page](https://byjus.com/maths/fixed-point-iteration/#:~:text=The%20fixed%20point%20iteration%20method%20uses%20the%20concept%20of%20a,g(x)%20%3D%20x.)*, byjus.com
+[^4]: Contents from p.11, 15, Henry Chai, CMU 10601, Lecture Slide 7/09/24
+[^5]: Contents from p.16, 17, Henry Chai, CMU 10601, Lecture Slide 7/09/24
 
 
