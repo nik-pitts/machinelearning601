@@ -66,7 +66,7 @@ To model agent's behaviour, we use a concept called **Policy**. The policy could
 To model interactions between agent and environment, we use a function called **Transition Function**. In a nutshell, transition function captures *dynamics* of agent - environment interaction. In a formula we write transition function as below: 
 
 $$
-p(s',r \| s, a) = p(S_t+1 = s', R_t+1=r \| S_t=s, A_t=a)
+p(s',r | s, a) = p(S_t+1 = s', R_t+1=r | S_t=s, A_t=a)
 $$
 
 The function means **probability of next state and reward** being some values *given the current state and action to be taken*. This captures the concept of MDP, where future state and reward are with repect to *current* state and action.
@@ -78,8 +78,8 @@ Then, let's look into how these individual ingredients are intangled with one an
 
 $$
 \begin{align}
-&s_0 \ \longrightarrow \ \pi(a\|s_0) \ \longrightarrow \ p(s',r\|s_0,a) \ \longrightarrow \ \text{takes stochastic action a} \longrightarrow \ \text{recieves} \ R_1 \ \text{reward and given} \ s_1 \text{ new state} \\
-&s_1 \ \longrightarrow \ \pi(a\|s_1) \ \longrightarrow \ p(s',r\|s_1,a) \ \hookrightarrow \text{this continues} \dots
+&s_0 \ \longrightarrow \ \pi(a|s_0) \ \longrightarrow \ p(s',r|s_0,a) \ \longrightarrow \ \text{takes stochastic action a} \longrightarrow \ \text{recieves} \ R_1 \ \text{reward and given} \ s_1 \text{ new state} \\
+&s_1 \ \longrightarrow \ \pi(a|s_1) \ \longrightarrow \ p(s',r|s_1,a) \ \hookrightarrow \text{this continues} \dots
 \end{align}
 $$
 
@@ -94,11 +94,11 @@ Okay, we've been through a lot. However, it's easy to get lost. Let's recall wha
 $$
 \begin{align}
 &G_t = \sum^{T}_{k=t+1}\gamma^{k-t-1}R_k
-&\Longleftrightarrow \ R_{t+1} + \gammaR_{t+2} + \gamma^2R_{t+3} + \dots + \gamma^{T-1}R_T
+&\Longleftrightarrow \ R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots + \gamma^{T-1} R_T
 \end{align}
 $$
 
-The format of \\(G_t\\) enlights the possibility of forming this equation in a recursive way. Let's consider a case where \\(T=3 \text{ and } t=0, 1, 2\\) respectively.\
+The format of \\(G_t\\) enlights the possibility of forming this equation in a recursive way. Let's consider a case where \\(T=3 \text{ and } t=0, 1, 2\\) respectively.
 
 i) t=0 \
 $$
@@ -130,7 +130,7 @@ $$
 Note that \\(G_t\\) refers to the sum of **future** reward from current time step \\(t\\) to terminating time step \\(T\\). Also, note that future rewards are discounted by the discount factor \\(\gamma\\) gradually. In a way, we can explicitly express our goal as 
 
 $$
-\max_{\pi} \mathbb{E}_{\pi}\[G_t\]
+\max_{\pi} \mathbb{E}_{\pi}[G_t]
 $$
 
 - Select policy that would maximize the **Expected Retrun**.
@@ -150,12 +150,12 @@ $$
 
 State-value function takes state as an input, the subscribe \\(\pi\\) means that the function depends on policy \\(\pi\\), and the output \\(v\\) refers to some number, or value. Similar to \\(G_t\\) the output of this function is an expectation of the return given the agent at state \\(s\\), and uses policy \\(\pi\\) to determine its action. Ultimately, state-value function is what we're trying to optimize, but it's **broken w.r.t states**.
 
-### Action-Value Function: \\(\mathcal{Q}_{\pi}(s,a)\\)
+### Action-Value Function: \\(Q_{\pi}(s,a)\\)
 
 Similarly, we define action-value function as below:
 
 $$
-\mathcal{Q}_{\pi}(s,a) = \mathbb{E}_{\pi}\[G_t \| S_t=s, A_t=a\]
+Q_{\pi}(s,a) = \mathbb{E}_{\pi}[G_t \| S_t=s, A_t=a]
 $$
 
 The difference between state-value function and action-value function is that action-value function conditions on **actions** as well. To unfold the above equation, we can say, expected return given the agent at state \\(s\\), and **takes action \\(a\\)**. Likewise, action-value function is what we're trying to optimize, but it's **broken w.r.t states and actions**.
