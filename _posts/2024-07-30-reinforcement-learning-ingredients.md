@@ -145,7 +145,7 @@ So far so good. However, we have one more step left before wrapping up this sect
 We define state-value function as below:
 
 $$
-\mathcal{V}_{\pi}(s) = \mathbb{E}_{\pi}\[G_t \| S_t=s\]
+\mathcal{V}_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t=s]
 $$
 
 State-value function takes state as an input, the subscribe \\(\pi\\) means that the function depends on policy \\(\pi\\), and the output \\(v\\) refers to some number, or value. Similar to \\(G_t\\) the output of this function is an expectation of the return given the agent at state \\(s\\), and uses policy \\(\pi\\) to determine its action. Ultimately, state-value function is what we're trying to optimize, but it's **broken w.r.t states**.
@@ -155,7 +155,7 @@ State-value function takes state as an input, the subscribe \\(\pi\\) means that
 Similarly, we define action-value function as below:
 
 $$
-Q_{\pi}(s,a) = \mathbb{E}_{\pi}[G_t \| S_t=s, A_t=a]
+Q_{\pi}(s,a) = \mathbb{E}_{\pi}[G_t | S_t=s, A_t=a]
 $$
 
 The difference between state-value function and action-value function is that action-value function conditions on **actions** as well. To unfold the above equation, we can say, expected return given the agent at state \\(s\\), and **takes action \\(a\\)**. Likewise, action-value function is what we're trying to optimize, but it's **broken w.r.t states and actions**.
