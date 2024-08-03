@@ -45,21 +45,23 @@ For example, (1,3) cell tells us under some action \\(a_0\\), there is a 9% chan
 For example, we can say, if there is two possible actions of going left or rihgt, an arbitrary action \\(a_0\\) are determined by the policy such that:
 
 $$
-\pi(\leftarrow | s_0) = 0.4 \quad \text{// 40% of choosing action right} \newline
-\pi(\rightarrow | s_0) = 0.6 \quad \text{// 60% of choosing action left} \newline
+\pi(\leftarrow | s_0) = 0.4 \quad \text{40% of choosing action right} \newline
+\pi(\rightarrow | s_0) = 0.6 \quad \text{60% of choosing action left} \newline
 $$
 
 with a discount factor \\(\gamma = 0.9\\).
 
 Given this information, let's recall what we're going to calculate. If we restate the value function in terms of state \\(s_0\\):
 
+$$
 \begin{aligned}
 v_{\pi}(s_0) 
 &= \mathbb{E}_{\pi}\left[G_t|s_0\right] \\
 &= \sum_{a \in \leftarrow, \rightarrow} \pi(a|s_0)\mathbb{E}_{\pi}\left[G_t|s_0,a\right]
 \end{aligned}
+$$
 
-We break this down by action, meaning sum of two terms, one for the left action and one for the right action. Each term will be the expected return conditional on the current state and the action\[\\(\mathbb{E}_{\pi}\[G_t\|s_0,a\] \Leftrightarrow q_{\pi}(s_0, a)\\) action value\], weighted by the probability of taking each action. 
+We break this down by action, meaning sum of two terms, one for the left action and one for the right action. Each term will be the expected return conditional on the current state and the action\\(\[\mathbb{E}_{\pi}\[G_t\|s_0,a\] \Leftrightarrow q_{\pi}(s_0, a)\]\\): action value, weighted by the probability of taking each action. 
 
 Note that \\(G_t\\) obeys recursion: \\(G_t = R_{t+1} + \gamma G_{t+1}\\). \\(G_t\\) is equal to the current reward plus total future reward of next step.
 
@@ -78,18 +80,18 @@ $$
 \begin{aligned}
 \mathbb{E}_{\pi}[G_t|s_0, \rightarrow]
 & =\mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | s_0, \rightarrow] \\
-& =\mathbb{E}_{\pi}[R_{t+1} + \gamma mathcal{v}_{\pi}(S_{t+1} | s_0), \rightarrow]
+& =\mathbb{E}_{\pi}[R_{t+1} + \gamma \mathcal{v}_{\pi}(S_{t+1} | s_0), \rightarrow]
 \end{aligned}
 $$
 
-From the uppper equation, \\(R_{t+1} \text{and} S_{t+1}\\) are just random variables, probability weighted average of values that we can find somewhere like *distribution tables* that we talked earlier. **Specifically, this will equal a sum over all pairs of reward and next state**, in our example, \\(r \in {0,1,2}, \ s \in {s_1, s_2}\\).
+From the uppper equation, \\(R_{t+1} \text{ and } S_{t+1}\\) are just random variables, probability weighted average of values that we can find somewhere like *distribution tables* that we talked earlier. **Specifically, this will equal a sum over all pairs of reward and next state**, in our example, \\(r \in {0,1,2}, \ s \in {s_1, s_2}\\).
 
 $$
 \mathbb{E}_{\pi}[G_t|s_0, \rightarrow] 
-= \sum_{r \in {0,1,2} \atop s \in {s_1, s_2}} p(s', r|s, \rightarrow)[r + \gamma mathcal{v}_{\pi}(s')]
+= \sum_{r \in {0,1,2} \atop s \in {s_1, s_2}} p(s', r|s, \rightarrow)[r + \gamma \mathcal{v}_{\pi}(s')]
 $$
 
-Each term will be weighted by its probability \\(p(s', r\|s, \rightarrow)\\), and each term itself is \\(\[r + \gamma v_{\pi}(s')\]. Lastly, we have \\(v_{\pi}(s')\\) in our hand to calculate the whole term. However, things are not done yet, since we should calculate the same for the whoel aciton set, in our case, \\(\leftarrow\\) action.
+Each term will be weighted by its probability \\(p(s', r\|s, \rightarrow)\\), and each term itself is \\(\[r + \gamma v_{\pi}(s')\]\\). Lastly, we have \\(\mathcal{v}_{\pi}(s')\\) in our hand to calculate the whole term. However, things are not done yet, since we should calculate the same for the whoel aciton set, in our case, \\(\leftarrow\\) action.
 
 In a nutshell, bellman equation **connects all state values**. If we can solve *some* state values, that means we can solve *all* state values.
 
