@@ -45,8 +45,8 @@ For example, (1,3) cell tells us under some action \\(a_0\\), there is a 9% chan
 For example, we can say, if there is two possible actions of going left or rihgt, an arbitrary action \\(a_0\\) are determined by the policy such that:
 
 $$
-\pi(\leftarrow | s_0) = 0.4 \quad \text{40\% of choosing action right} \\
-\pi(\rightarrow | s_0) = 0.6 \quad \text{60\% of choosing action left} \\
+\pi(\leftarrow | s_0) = 0.4 \quad \text{40 percent of choosing action right} \\
+\pi(\rightarrow | s_0) = 0.6 \quad \text{60 percent of choosing action left} \\
 $$
 
 with a discount factor \\(\gamma = 0.9\\).
@@ -62,7 +62,7 @@ v_{\pi}(s_0)
 $$
 
 We break this down by action, meaning sum of two terms, one for the left action and one for the right action. Each term will be the expected return conditional on the current state and the action
-\\(\mathbb{E}_{\pi}\[G_t\|s_0,a\] \Leftrightarrow q_{\pi}(s_0, a)\\): action value, weighted by the probability of taking each action. 
+\\(\mathbb{E}_{\pi}[G_t\|s_0,a] \Leftrightarrow q_{\pi}(s_0, a)\\): action value, weighted by the probability of taking each action. 
 
 Note that \\(G_t\\) obeys recursion: \\(G_t = R_{t+1} + \gamma G_{t+1}\\). \\(G_t\\) is equal to the current reward plus total future reward of next step.
 
