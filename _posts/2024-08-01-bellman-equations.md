@@ -8,8 +8,10 @@ Reinforcement Learning covers whole new concept compared to traditional supervis
 ## Table of contents
 
 - [Dynamic Programming](#dynamic-programming)
-- [Bellman Equations](#bellman-equation)
+- [Bellman Equations](#bellman-equations)
 - [Bellman Optimality](#bellman-optimality)
+- [Policy Evaluation](#policy-evaluation)
+- [Policy Improvement](#policy-improvement)
 
 ## [Dynamic Programming](#dynamic-programming)
 
@@ -28,7 +30,7 @@ Dynamic Programming (DP) is a method used in mathematics and computer science to
 - Overlapping Subproblems
   In computer science, a problem is said to have overlapping subproblems if the problem can be broken down into subproblems which are reused several times or a recursive algorithm for the problem sovles the same subproblem over and over rather than always generating new subproblems. For exmaple, computing the Fibonacci Sequence exhibits overlapping subproblems.[^4]
 
-## [Bellman Equations](#bellman-equation)
+## [Bellman Equations](#bellman-equations)
 
 ### Bellman Equation for \\(\mathcal{v}_{\pi}(s)\\)
 
@@ -98,6 +100,66 @@ In a nutshell, bellman equation **connects all state values**. If we can solve *
 
 ## [Bellman Optimality](#bellman-optimality)
 
+But, stories aren't finished yet. So far, we've connected all state values of **some policy**. However, our final goal is to the **optimal policy!** 
+
+- Optimal state-value function gives the highest possible values across all policies.
+- Optimal action-value function gives the highest possible values across all policies per state-action pairs.
+
+For example, what is optimal state-value \\(\mathcal{v}^*(s^0)\\) under such action-value function values? 
+
+$$
+q^*(s^0, \leftarrow) = 19.1 \
+q^*(s^0, \rightarrow) = 21.3
+$$
+
+Without a doubt, optimal state-value would be the action-value function with bigger value, action-value function conditioned to \\(\rightarrow\\) action. Therefore, by conditioning optimal state-value function to pick an action that maximizes the value of action-value function, we can find optimal policy. 
+
+$$
+\mathcal{v}^*(s^0) = \max_{a \in \{\leftarrow, \rightarrow \}} q^*(s^0, a)
+$$
+
+> The agent must always select the highest action value, otherwise the agent is not behaving optimally. In other words, the state value must be the maximum over optimal action values.
+
+## [Policy Evaluation](#policy-evaluation)
+
+**Objective: Compute \\(\mathcal{v}_{\pi}(s)\\) or \\(q_{\pi}(s,a)\\) for a given \\(\pi\\).**
+
+![policy-evaluation](https://miro.medium.com/v2/resize:fit:1400/1*HVY4sEsEYRsFXY14RzT8RQ.png)
+*Random initialization, update cell values w.r.t actions, repeat and converge*[^6]
+
+1. Turn Bellman equation into an assignment and repeatedely apply starting from random values.
+2. Doing step 1. forms a sweep, which means one path over all states
+3. Repeat sweeps until the values stop changing by more than some small amount
+4. And this process always *converges* to the right answer.
+
+## [Policy Improvement](#policy-improvement)
+
+**Objective: Compute \\(\mathcal{v}_{\pi}(s)\\), determine a better policy than \\(\pi\\)**
+
+Below content from [15:52](https://youtu.be/_j6pvGEchWU?si=dInm9d7thOu-E60J&t=952), Bellman Equations, Dynamic Programming, Generalized Policy Iteration | Reinforcement Learning Part 2, Mutual Information
+
+Given \\(\mathcal{v}_{\pi}(s)\\), determine a better policy than \\(\pi\\).
+
+Say \\(\pi\\) is deterministic: \\(a=\pi(s)\\)
+
+For an optimal policy \\({\pi}^*\\):
+$$
+{\pi}^*(s) = \arg \max_{a} q^*(s,a) 
+$$
+
+Define a new policy \\(\pi'\\):
+$$
+{\pi}'(s) = \arg \max_{a} q_{\pi}(s,a) 
+$$
+
+Due to the **Policy Improvement Theorem**:
+$$
+v_{\pi}(s) \leq v_{\pi'}(s) \quad \forall \ s \in S
+$$
+
+If \\(\pi\\) is greedy w.r.t \\(v_{\pi}\\), then \\(\pi = \pi^*\\).
+
+> Greedy Algorithm: In computer science, a greedy algorithm is an algorithm that finds a solution to problems in the shortest time possible. It picks the path that seems optimal at the moment without regard for the overall optimization of the solution that would be formed.[^7]
 
 ---
 {: data-content="footnotes"}
@@ -107,3 +169,5 @@ In a nutshell, bellman equation **connects all state values**. If we can solve *
 [^3]: Image from *[this page](https://favtutor.com/resources/images/uploads/blobid0.png)*, FavTutor, Shivali Bhadaniya, Dynamic Programming in Python: Top 10 Problems (with code)
 [^4]: Definition form *[Wiki page](https://en.wikipedia.org/wiki/Optimal_substructure#:~:text=In%20computer%20science%2C%20a%20problem,greedy%20algorithms%20for%20a%20problem.)*
 [^5]: Definition form *[Wiki page](https://en.wikipedia.org/wiki/Overlapping_subproblems#:~:text=In%20computer%20science%2C%20a%20problem,than%20always%20generating%20new%20subproblems.)*
+[^6]: Image from *[this page](https://towardsdatascience.com/reinforcement-learning-part-2-policy-evaluation-and-improvement-59ec85d03b3a)*, Medium, Vyacheslav Efimov, Reinforcement Learning, Part 2: Policy Evaluation and Improvement
+[^7]: *[Definition of Greedy Algorithm](https://www.freecodecamp.org/news/greedy-algorithms/#:~:text=In%20computer%20science%2C%20a%20greedy,solution%20that%20would%20be%20formed.), Free Code Camp, Tantoluwa Heritage Alabi, What is a Greedy Algorithm? Examples of Greedy Algorithms
