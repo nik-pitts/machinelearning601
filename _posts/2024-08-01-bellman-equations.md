@@ -47,8 +47,11 @@ For example, (1,3) cell tells us under some action \\(a_0\\), there is a 9% chan
 For example, we can say, if there is two possible actions of going left or rihgt, an arbitrary action \\(a_0\\) are determined by the policy such that:
 
 $$
-\pi(\leftarrow | s_0) = 0.4 \quad \text{40 percent of choosing action right} \\
-\pi(\rightarrow | s_0) = 0.6 \quad \text{60 percent of choosing action left} \\
+\pi(\leftarrow | s_0) = 0.4 \quad \text{40% of choosing action right}
+$$
+
+$$
+\pi(\rightarrow | s_0) = 0.6 \quad \text{60% of choosing action left}
 $$
 
 with a discount factor \\(\gamma = 0.9\\).
@@ -64,7 +67,7 @@ v_{\pi}(s_0)
 $$
 
 We break this down by action, meaning sum of two terms, one for the left action and one for the right action. Each term will be the expected return conditional on the current state and the action
-\\(\mathbb{E}_{\pi}[G_t\|s_0,a] \Leftrightarrow q_{\pi}(s_0, a)\\): action value, weighted by the probability of taking each action. 
+\\( \mathbb{E}_{\pi}\[G_t\|s_0,a\] \Leftrightarrow q_{\pi}(s_0, a) \\): action value, weighted by the probability of taking each action. 
 
 Note that \\(G_t\\) obeys recursion: \\(G_t = R_{t+1} + \gamma G_{t+1}\\). \\(G_t\\) is equal to the current reward plus total future reward of next step.
 
@@ -108,7 +111,7 @@ But, stories aren't finished yet. So far, we've connected all state values of **
 For example, what is optimal state-value \\(\mathcal{v}^*(s^0)\\) under such action-value function values? 
 
 $$
-q^*(s^0, \leftarrow) = 19.1 \
+q^*(s^0, \leftarrow) = 19.1 \quad
 q^*(s^0, \rightarrow) = 21.3
 $$
 
@@ -122,7 +125,7 @@ $$
 
 ## [Policy Evaluation](#policy-evaluation)
 
-**Objective: Compute \\(\mathcal{v}_{\pi}(s)\\) or \\(q_{\pi}(s,a)\\) for a given \\(\pi\\).**
+**Objective: Compute \\(v_{\pi}(s)\\) or \\(q_{\pi}(s,a)\\) for a given \\(\pi\\).**
 
 ![policy-evaluation](https://miro.medium.com/v2/resize:fit:1400/1*HVY4sEsEYRsFXY14RzT8RQ.png)
 *Random initialization, update cell values w.r.t actions, repeat and converge*[^6]
@@ -136,7 +139,7 @@ $$
 
 **Objective: Compute \\(\mathcal{v}_{\pi}(s)\\), determine a better policy than \\(\pi\\)**
 
-Below content from [15:52](https://youtu.be/_j6pvGEchWU?si=dInm9d7thOu-E60J&t=952), Bellman Equations, Dynamic Programming, Generalized Policy Iteration | Reinforcement Learning Part 2, Mutual Information
+Below content from [15:52](https://youtu.be/_j6pvGEchWU?si=dInm9d7thOu-E60J&t=952), Bellman Equations, Dynamic Programming, Generalized Policy Iteration Reinforcement Learning Part 2, Mutual Information
 
 Given \\(\mathcal{v}_{\pi}(s)\\), determine a better policy than \\(\pi\\).
 
