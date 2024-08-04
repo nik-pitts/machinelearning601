@@ -67,7 +67,7 @@ v_{\pi}(s_0)
 $$
 
 We break this down by action, meaning sum of two terms, one for the left action and one for the right action. Each term will be the expected return conditional on the current state and the action
-\\( \mathbb{E}_{\pi}\[G_t\|s_0,a\] \Leftrightarrow q_{\pi}(s_0, a) \\): action value, weighted by the probability of taking each action. 
+\\(E_{\pi}\[G_t\|s_0,a\] \Leftrightarrow q_{\pi}(s_0, a)\\): action value, weighted by the probability of taking each action. 
 
 Note that \\(G_t\\) obeys recursion: \\(G_t = R_{t+1} + \gamma G_{t+1}\\). \\(G_t\\) is equal to the current reward plus total future reward of next step.
 
