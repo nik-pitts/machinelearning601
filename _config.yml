@@ -3,7 +3,7 @@ author: Nik Kim
 email: knocknocknik@gmail.com
 baseurl:
 url: "https://nik-pitts.github.io/machinelearning601"
-description: "Everday, 1 hour, ML, Studying, Pittsburgh"
+description: "Little Cooperative Machines ML Research Log"
 
 permalink: /:slug.html
 
