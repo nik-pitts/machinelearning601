@@ -123,9 +123,19 @@ After tuning the reward mechanism to be as simple as possible, constructing the 
 
 ### Tensorboard Report
 
+![tb-trend-monitoring](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-19-tb-log-all.png)
+
 ## [Validation](#validation)
 
 Here's the validation video of the resulting agent.
+
+### First version of PYP RL agent
+
+![first-version-pyp-rl](2025-01-19-pyp-validation-1.mp4)
+
+### Improved version of PYP RL agent
+
+![improved-version-pyp-rl](2025-01-19-pyp-validation-2.mp4)
 
 ## [Thoughts](#thoughts)
 
