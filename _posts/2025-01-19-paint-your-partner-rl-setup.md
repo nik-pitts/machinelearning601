@@ -131,11 +131,17 @@ Here's the validation video of the resulting agent.
 
 ### First version of PYP RL agent
 
-![first-version-pyp-rl](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-19-pyp-validation-1.mp4)
+<video width="360" height="360" controls>
+  <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-19-pyp-validation-1.mp4" type="video/mp4">
+  Fails dramatically.
+</video>
 
 ### Improved version of PYP RL agent
 
-![improved-version-pyp-rl](https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-19-pyp-validation-2.mp4)
+<video width="360" height="360" controls>
+  <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-19-pyp-validation-2.mp4" type="video/mp4">
+  Improved.
+</video>
 
 ## [Thoughts](#thoughts)
 
