@@ -27,7 +27,7 @@ The difficulty stemmed from two key issues. First, because wandering lacks a cle
 
 Below is the code that successfully emulates the wandering behavior. Basically, I rewarded agent if they successfully visited all grids in a given amounts of steps - impotantly more than the size of the grid, rewarding them if they've visited different positions from where they already visited.
 
-<code>
+```
     def step(self, action):
 
         new_position = self.agent_pos.copy()
@@ -57,7 +57,7 @@ Below is the code that successfully emulates the wandering behavior. Basically, 
         self.steps_taken += 1
 
         return self._get_obs(), reward, terminated, truncated, self.info
-</code>
+```
 
 ### Wandering Behavior
 
@@ -76,11 +76,11 @@ Interestingly, painting is more closely related to <mark>planning</mark> than si
 
 Therefore, this layer functions as the agent’s mental planning ability for painting.
 
-<code>
+```
 self.action_space = spaces.Discrete(4)  # 0: cyan, 1: magenta, 2: yellow, 3: transparent, 4: do nothing
-</code>
+```
 
-<code>
+```
     def step(self, action):
         info = {
             "is_success": False,
@@ -121,13 +121,13 @@ self.action_space = spaces.Discrete(4)  # 0: cyan, 1: magenta, 2: yellow, 3: tra
         reward -= 0.1
 
         return self._get_obs(), reward, terminated, truncated, info
-</code>
+```
 
 ### [Painting Logs]
 
 Below is evaluation log of painting layer. As you can see, the agent learned how to plan the color most effectively throughout.
 
-'''
+```
 Episode 4: Reward = 9.9, Steps = 1
 [<Pallete.CYAN: 0>]
 Goal Color: Pallete.CYAN_MAGENTA_YELLOW, Initial Agent Color: Pallete.CYAN_YELLOW
@@ -152,14 +152,14 @@ Evaluation over 10 episodes:
 Mean Reward: 9.81
 Success Rate: 100.00%
 Truncation Rate: 0.00%
-'''
+```
 
 
 ## [Moving to the goal](##moving-to-the-goal)
 
 This layer was the easiest sub layer to train. The observation the agent needs is its current position and the row, column of the goal.
 
-'''
+```
     def step(self, action):
 
         if action == 0 and self.agent_pos[0] > 0:  # Move up
@@ -186,7 +186,7 @@ This layer was the easiest sub layer to train. The observation the agent needs i
         self.steps_taken += 1
 
         return self._get_obs(), reward, terminated, truncated, self.info
-'''
+```
 
 ### Moving to the goal behavior
 
