@@ -27,7 +27,7 @@ The difficulty stemmed from two key issues. First, because wandering lacks a cle
 
 Below is the code that successfully emulates the wandering behavior. Basically, I rewarded agent if they successfully visited all grids in a given amounts of steps - impotantly more than the size of the grid, rewarding them if they've visited different positions from where they already visited.
 
-'''
+<code>
     def step(self, action):
 
         new_position = self.agent_pos.copy()
@@ -57,8 +57,7 @@ Below is the code that successfully emulates the wandering behavior. Basically, 
         self.steps_taken += 1
 
         return self._get_obs(), reward, terminated, truncated, self.info
-
-'''
+</code>
 
 ### Wandering Behavior
 
@@ -77,12 +76,11 @@ Interestingly, painting is more closely related to <mark>planning</mark> than si
 
 Therefore, this layer functions as the agent’s mental planning ability for painting.
 
-'''
+<code>
 self.action_space = spaces.Discrete(4)  # 0: cyan, 1: magenta, 2: yellow, 3: transparent, 4: do nothing
-# now action space represents the color they want to choose.
-'''
+</code>
 
-'''
+<code>
     def step(self, action):
         info = {
             "is_success": False,
@@ -123,7 +121,7 @@ self.action_space = spaces.Discrete(4)  # 0: cyan, 1: magenta, 2: yellow, 3: tra
         reward -= 0.1
 
         return self._get_obs(), reward, terminated, truncated, info
-'''
+</code>
 
 ### [Painting Logs]
 
