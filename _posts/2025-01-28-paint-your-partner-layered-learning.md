@@ -62,7 +62,7 @@ Below is the code that successfully emulates the wandering behavior. Basically, 
 ### Wandering Behavior
 
 <video width="360" height="360" controls>
-  <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-28-ll-goaling.mp4" type="video/mp4">
+  <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-28-ll-wandering.mp4" type="video/mp4">
   Improved.
 </video>
 
@@ -191,7 +191,7 @@ This layer was the easiest sub layer to train. The observation the agent needs i
 ### Moving to the goal behavior
 
 <video width="360" height="360" controls>
-  <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-28-ll-wandering.mp4" type="video/mp4">
+  <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-01-28-ll-goaling.mp4" type="video/mp4">
   Improved.
 </video>
 
