@@ -123,7 +123,7 @@ self.action_space = spaces.Discrete(4)  # 0: cyan, 1: magenta, 2: yellow, 3: tra
         return self._get_obs(), reward, terminated, truncated, info
 ```
 
-### [Painting Logs]
+### Painting Logs
 
 Below is evaluation log of painting layer. As you can see, the agent learned how to plan the color most effectively throughout.
 

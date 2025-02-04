@@ -43,7 +43,7 @@ This is the result of layered agent performing on the Paint Your Partner environ
   <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-02-04-layered-agent-result.mp4" type="video/mp4">
 </video>
 
-### [An Issue]
+### An Issue
 
 However, I also found an issue with this approach. Since the agent was simply performing the *goaling* action when making decisions, it couldn’t avoid color chips that would change its color and prevent it from achieving the target goal color. As a result, it fell into a loop of <mark>complete confusion</mark> when it should have been evading the color chips while progressing toward its final goal—matching the target color.
 
@@ -53,6 +53,6 @@ However, this approach has a significant advantage— the agent’s actions scal
 
 Eventhough each behavior was trained in 5x5 grid environment initially, agents could still perform well in 15x15 grid. Below video shows the agent playing the game in 10x10 environment.
 
-<video width="720" height="720" controls>
+<video width="600" height="600" controls>
   <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-02-04-layered-agent-expandability.mp4" type="video/mp4">
 </video>
