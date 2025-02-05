@@ -53,6 +53,6 @@ However, this approach has a significant advantage— the agent’s actions scal
 
 Eventhough each behavior was trained in 5x5 grid environment initially, agents could still perform well in 15x15 grid. Below video shows the agent playing the game in 10x10 environment.
 
-<video width="600" height="600" controls>
+<video width="500" height="500" controls>
   <source src="https://raw.githubusercontent.com/nik-pitts/machinelearning601/master/_images/2025-02-04-layered-agent-expandability.mp4" type="video/mp4">
 </video>
